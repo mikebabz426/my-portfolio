@@ -1,34 +1,35 @@
+import {
+  AppBar,
+  Typography,
+  Toolbar,
+  IconButton,
+} from "@material-ui/core"
+import MenuIcon from '@material-ui/icons/Menu';
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
+  <AppBar>
+    <Toolbar>
+      <Link
+        to="/"
+        style={{
+          color: `white`,
+          textDecoration: `none`,
+        }}
+      >
+        <Typography variant="h5">{siteTitle}</Typography>
+      </Link>
+      <IconButton
+        edge="start"
+        color="inherit"
+        aria-label="menu"
+      >
+        <MenuIcon />
+      </IconButton>
+    </Toolbar>
+  </AppBar>
 )
 
 Header.propTypes = {
