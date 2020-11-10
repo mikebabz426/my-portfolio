@@ -1,15 +1,11 @@
-import {
-  AppBar,
-  Typography,
-  Toolbar,
-  IconButton,
-} from "@material-ui/core"
-import MenuIcon from '@material-ui/icons/Menu';
+import { AppBar, Typography, Toolbar, IconButton } from "@material-ui/core"
+import MenuIcon from "@material-ui/icons/Menu"
+import Brightness2Icon from "@material-ui/icons/Brightness2"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
-const Header = ({ siteTitle }) => (
+const Header = ({ siteTitle, themeHandler }) => (
   <AppBar>
     <Toolbar>
       <Link
@@ -21,12 +17,17 @@ const Header = ({ siteTitle }) => (
       >
         <Typography variant="h5">{siteTitle}</Typography>
       </Link>
+      <IconButton edge="start" color="inherit" aria-label="menu">
+        <MenuIcon />
+      </IconButton>
+      <Typography>Toggle Dark Mode</Typography>
       <IconButton
         edge="start"
         color="inherit"
-        aria-label="menu"
+        aria-label="brightness"
+        onClick={themeHandler}
       >
-        <MenuIcon />
+        <Brightness2Icon />
       </IconButton>
     </Toolbar>
   </AppBar>
