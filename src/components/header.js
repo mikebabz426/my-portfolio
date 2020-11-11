@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import {
   AppBar,
   Typography,
@@ -9,9 +9,11 @@ import {
 } from "@material-ui/core"
 import MenuIcon from "@material-ui/icons/Menu"
 import Brightness2Icon from "@material-ui/icons/Brightness2"
+import Brightness5Icon from "@material-ui/icons/Brightness5"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import { makeStyles } from "@material-ui/core/styles"
+import MobileLinks from "./mobileLinks"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -46,81 +48,88 @@ const useStyles = makeStyles(theme => ({
       color: theme.palette.secondary.light,
     },
   },
+  mobileNav: {
+    zIndex: "-1",
+  },
 }))
 
-const Header = ({ siteTitle, themeHandler }) => {
+const Header = ({ siteTitle, themeHandler, themeState }) => {
   const classes = useStyles()
+  const [menu, setMenu] = useState(false)
 
-  // const links = ["Home", "Projects", "About", "Contact"]
+  const links = [
+    { name: "Home", to: "/" },
+    { name: "Projects", to: "/projects" },
+    { name: "About", to: "/about" },
+    { name: "Contact", to: "/contact" },
+  ]
 
   return (
-    <AppBar>
-      <Toolbar className={classes.root}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          <Typography variant="h5">{siteTitle}</Typography>
-        </Link>
-        <Box className={classes.container}>
+    <>
+      <AppBar>
+        <Toolbar className={classes.root}>
+          <Link
+            to="/"
+            style={{
+              color: `white`,
+              textDecoration: `none`,
+            }}
+          >
+            <Typography variant="h5">{siteTitle}</Typography>
+          </Link>
+
           <Box className={classes.container}>
-            <Typography>Dark Mode</Typography>
+            <Box className={classes.container}>
+              <Typography>{themeState ? "Dark Mode" : "Light Mode"}</Typography>
+              <IconButton
+                className={classes.brightnessIcon}
+                edge="start"
+                color="inherit"
+                aria-label="brightness"
+                onClick={themeHandler}
+              >
+                {themeState ? <Brightness2Icon /> : <Brightness5Icon />}
+              </IconButton>
+            </Box>
+
+            <Box className={classes.links}>
+              {links.map(link => {
+                return (
+                  <Typography className={classes.link}>
+                    <MuiLink
+                      style={{ textDecoration: "none" }}
+                      color="inherit"
+                      component={Link}
+                      to={link.to}
+                    >
+                      {link.name}
+                    </MuiLink>
+                  </Typography>
+                )
+              })}
+            </Box>
+
             <IconButton
-              className={classes.brightnessIcon}
+              className={classes.menu}
               edge="start"
               color="inherit"
-              aria-label="brightness"
-              onClick={themeHandler}
+              aria-label="menu"
+              onClick={() => setMenu(!menu)}
             >
-              <Brightness2Icon />
+              <MenuIcon />
             </IconButton>
           </Box>
-          <Box className={classes.links}>
-            <Typography className={classes.link}>
-              <MuiLink
-                style={{ textDecoration: "none" }}
-                color="inherit"
-                component={Link}
-                to="/"
-              >
-                Home
-              </MuiLink>
-            </Typography>
-            <Typography className={classes.link}>
-              <MuiLink
-                style={{ textDecoration: "none" }}
-                color="inherit"
-                component={Link}
-                to="/404"
-              >
-                404
-              </MuiLink>
-            </Typography>
-            <Typography className={classes.link}>
-              <MuiLink
-                style={{ textDecoration: "none" }}
-                color="inherit"
-                component={Link}
-                to="/page-2"
-              >
-                Page 2
-              </MuiLink>
-            </Typography>
-          </Box>
-          <IconButton
-            className={classes.menu}
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-          >
-            <MenuIcon />
-          </IconButton>
-        </Box>
-      </Toolbar>
-    </AppBar>
+        </Toolbar>
+      </AppBar>
+      {menu ? (
+        <MobileLinks
+          theme={themeState}
+          className={classes.mobileNav}
+          links={links}
+          onSelect={() => setMenu(!menu)}
+        />
+      ) : null}
+    </>
   )
 }
 

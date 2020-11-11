@@ -1,16 +1,13 @@
-import React, { useState } from "react"
-import { CssBaseline, ThemeProvider } from "@material-ui/core"
+import React, { useContext } from "react"
+import { CssBaseline } from "@material-ui/core"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import "fontsource-roboto"
-import { createMuiTheme } from "@material-ui/core/styles"
-import { light, dark } from "./../themes"
+import { ThemeContext } from "./../../gatsby-browser"
 
 const Layout = ({ children }) => {
-  const [theme, setTheme] = useState(true)
-  const appliedTheme = createMuiTheme(theme ? light : dark)
-
+  const [theme, setTheme] = useContext(ThemeContext)
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -23,13 +20,12 @@ const Layout = ({ children }) => {
 
   return (
     <CssBaseline>
-      <ThemeProvider theme={appliedTheme}>
-        <Header
-          siteTitle={data.site.siteMetadata?.title || `Title`}
-          themeHandler={() => setTheme(!theme)}
-        />
-        {children}
-      </ThemeProvider>
+      <Header
+        siteTitle={data.site.siteMetadata?.title || `Title`}
+        themeHandler={() => setTheme(!theme)}
+        themeState={theme}
+      />
+      {children}
     </CssBaseline>
   )
 }
