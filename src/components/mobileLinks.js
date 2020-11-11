@@ -1,5 +1,5 @@
 import React from "react"
-import { Link as MuiLink } from "@material-ui/core"
+import { Link as MuiLink, Slide } from "@material-ui/core"
 import { Link } from "gatsby"
 import { makeStyles } from "@material-ui/core/styles"
 
@@ -7,7 +7,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: "#333",
     display: "flex",
-    zIndex: "-1",
+    zIndex: "1",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const MobileLinks = ({ links, onSelect, theme }) => {
+const MobileLinks = ({ links, onSelect, theme, menu }) => {
   const classes = useStyles()
 
   const style = theme
@@ -50,24 +50,26 @@ const MobileLinks = ({ links, onSelect, theme }) => {
       }
 
   return (
-    <nav className={classes.root} style={style}>
-      <ul className={classes.list}>
-        {links.map(link => (
-          <li className={classes.item}>
-            <MuiLink
-              key={link.name}
-              className={classes.link}
-              color="secondary"
-              component={Link}
-              to={link.to}
-              onClick={onSelect}
-            >
-              {link.name}
-            </MuiLink>
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <Slide direction="left" in={menu} mountOnEnter unmountOnExit timeout={700}>
+      <nav className={classes.root} style={style}>
+        <ul className={classes.list}>
+          {links.map(link => (
+            <li className={classes.item}>
+              <MuiLink
+                key={link.name}
+                className={classes.link}
+                color="secondary"
+                component={Link}
+                to={link.to}
+                onClick={onSelect}
+              >
+                {link.name}
+              </MuiLink>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </Slide>
   )
 }
 

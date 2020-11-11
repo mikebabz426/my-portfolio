@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import {
+  Container,
   AppBar,
   Typography,
   Toolbar,
@@ -21,6 +22,11 @@ const useStyles = makeStyles(theme => ({
   },
   container: {
     display: "flex",
+    alignItems: "center",
+  },
+  navContainer: {
+    display: "flex",
+    justifyContent: "space-between",
     alignItems: "center",
   },
   brightnessIcon: {
@@ -68,61 +74,66 @@ const Header = ({ siteTitle, themeHandler, themeState }) => {
     <>
       <AppBar>
         <Toolbar className={classes.root}>
-          <Link
-            to="/"
-            style={{
-              color: `white`,
-              textDecoration: `none`,
-            }}
-          >
-            <Typography variant="h5">{siteTitle}</Typography>
-          </Link>
+          <Container maxWidth="lg" className={classes.navContainer}>
+            <Link
+              to="/"
+              style={{
+                color: `white`,
+                textDecoration: `none`,
+              }}
+            >
+              <Typography variant="h5">{siteTitle}</Typography>
+            </Link>
 
-          <Box className={classes.container}>
             <Box className={classes.container}>
-              <Typography>{themeState ? "Dark Mode" : "Light Mode"}</Typography>
+              <Box className={classes.container}>
+                <Typography>
+                  {themeState ? "Dark Mode" : "Light Mode"}
+                </Typography>
+                <IconButton
+                  className={classes.brightnessIcon}
+                  edge="start"
+                  color="inherit"
+                  aria-label="brightness"
+                  onClick={themeHandler}
+                >
+                  {themeState ? <Brightness2Icon /> : <Brightness5Icon />}
+                </IconButton>
+              </Box>
+
+              <Box className={classes.links}>
+                {links.map(link => {
+                  return (
+                    <Typography key={link.name} className={classes.link}>
+                      <MuiLink
+                        style={{ textDecoration: "none" }}
+                        color="inherit"
+                        component={Link}
+                        to={link.to}
+                      >
+                        {link.name}
+                      </MuiLink>
+                    </Typography>
+                  )
+                })}
+              </Box>
+
               <IconButton
-                className={classes.brightnessIcon}
+                className={classes.menu}
                 edge="start"
                 color="inherit"
-                aria-label="brightness"
-                onClick={themeHandler}
+                aria-label="menu"
+                onClick={() => setMenu(!menu)}
               >
-                {themeState ? <Brightness2Icon /> : <Brightness5Icon />}
+                <MenuIcon />
               </IconButton>
             </Box>
-
-            <Box className={classes.links}>
-              {links.map(link => {
-                return (
-                  <Typography className={classes.link}>
-                    <MuiLink
-                      style={{ textDecoration: "none" }}
-                      color="inherit"
-                      component={Link}
-                      to={link.to}
-                    >
-                      {link.name}
-                    </MuiLink>
-                  </Typography>
-                )
-              })}
-            </Box>
-
-            <IconButton
-              className={classes.menu}
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              onClick={() => setMenu(!menu)}
-            >
-              <MenuIcon />
-            </IconButton>
-          </Box>
+          </Container>
         </Toolbar>
       </AppBar>
       {menu ? (
         <MobileLinks
+          menu={menu}
           theme={themeState}
           className={classes.mobileNav}
           links={links}
