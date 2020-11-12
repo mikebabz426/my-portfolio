@@ -47,7 +47,8 @@ const useStyles = makeStyles(theme => ({
     },
   },
   link: {
-    margin: "0 1rem",
+    marginLeft: "1rem",
+    marginRight: "1rem",
     display: "inline-block",
     textDecoration: "none",
     "&:hover": {
@@ -56,6 +57,9 @@ const useStyles = makeStyles(theme => ({
   },
   mobileNav: {
     zIndex: "-1",
+  },
+  linkSelected: {
+    borderBottom: `.1rem solid #c5cae9`,
   },
 }))
 
@@ -106,10 +110,14 @@ const Header = ({ siteTitle, themeHandler, themeState }) => {
                   return (
                     <Typography key={link.name} className={classes.link}>
                       <MuiLink
-                        style={{ textDecoration: "none" }}
+                        style={{
+                          textDecoration: "none",
+                          paddingBottom: ".1rem",
+                        }}
                         color="inherit"
                         component={Link}
                         to={link.to}
+                        activeClassName={classes.linkSelected}
                       >
                         {link.name}
                       </MuiLink>

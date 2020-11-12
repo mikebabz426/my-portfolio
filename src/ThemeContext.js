@@ -9,7 +9,7 @@ const ThemeContextProvider = ({ children }) => {
   const [theme, setTheme] = useState(true)
   const appliedTheme = createMuiTheme(theme ? light : dark)
   return (
-    <ThemeContext.Provider value={(theme, setTheme)}>
+    <ThemeContext.Provider value={[theme, setTheme]}>
       <ThemeProvider theme={appliedTheme}>{children}</ThemeProvider>
     </ThemeContext.Provider>
   )

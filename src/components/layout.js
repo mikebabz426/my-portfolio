@@ -7,7 +7,7 @@ import "fontsource-roboto"
 import { ThemeContext } from "./../ThemeContext"
 
 const Layout = ({ children }) => {
-  const { theme, setTheme } = useContext(ThemeContext)
+  const [theme, setTheme] = useContext(ThemeContext)
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {

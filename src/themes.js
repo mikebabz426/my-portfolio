@@ -5,7 +5,7 @@ export const light = {
       main: "#3f51b5",
     },
     secondary: {
-      main: "#c5cae9",
+      main: "#3f51b5",
     },
   },
 }
@@ -17,7 +17,7 @@ export const dark = {
       main: "#212121",
     },
     secondary: {
-      main: "#c5cae9",
+      main: "#3f51b5",
     },
   },
 }
