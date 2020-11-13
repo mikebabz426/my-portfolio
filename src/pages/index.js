@@ -65,8 +65,10 @@ const useStyles = makeStyles(theme => ({
 const IndexPage = ({ data }) => {
   const [theme] = useContext(ThemeContext)
   const classes = useStyles()
+
+  console.log(data)
   const source = theme
-    ? data.allImageSharp.nodes[0].fluid
+    ? data.allImageSharp.nodes[2].fluid
     : data.allImageSharp.nodes[1].fluid
 
   const style = {
@@ -244,7 +246,7 @@ export const query = graphql`
   {
     allImageSharp {
       nodes {
-        fluid {
+        fluid(pngQuality: 100) {
           ...GatsbyImageSharpFluid
         }
       }
