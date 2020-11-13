@@ -15,11 +15,14 @@ import {
   CardHeader,
   Chip,
   Avatar,
+  Link as MuiLink,
 } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import WebIcon from "@material-ui/icons/Web"
 import BrushIcon from "@material-ui/icons/Brush"
 import LayersIcon from "@material-ui/icons/Layers"
+import GitHubIcon from "@material-ui/icons/GitHub"
+import LinkedInIcon from "@material-ui/icons/LinkedIn"
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -60,13 +63,26 @@ const useStyles = makeStyles(theme => ({
     marginTop: "5rem",
     textAlign: "justify",
   },
+  social: {
+    marginTop: "1rem",
+    padding: "1rem",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  socialLink: {
+    margin: "0 .5rem",
+    "&:hover": {
+      color: theme.palette.secondary.light,
+      textDecoration: "none",
+    },
+  },
 }))
 
 const IndexPage = ({ data }) => {
   const [theme] = useContext(ThemeContext)
   const classes = useStyles()
 
-  console.log(data)
   const source = theme
     ? data.allImageSharp.nodes[1].fluid
     : data.allImageSharp.nodes[0].fluid
@@ -112,6 +128,36 @@ const IndexPage = ({ data }) => {
                 My Work
               </Button>
             </Link>
+          </Box>
+          <Box className={classes.social}>
+            <MuiLink
+              style={{
+                textDecoration: "none",
+              }}
+              target="_blank"
+              component={Link}
+              to="https://www.linkedin.com/in/mike-babetchki-34a150102/"
+            >
+              <LinkedInIcon
+                color="secondary"
+                fontSize="large"
+                className={classes.socialLink}
+              />
+            </MuiLink>
+            <MuiLink
+              style={{
+                textDecoration: "none",
+              }}
+              component={Link}
+              target="_blank"
+              to="https://github.com/mikebabz426"
+            >
+              <GitHubIcon
+                color="secondary"
+                fontSize="large"
+                className={classes.socialLink}
+              />
+            </MuiLink>
           </Box>
         </Box>
       </BackgroundImage>

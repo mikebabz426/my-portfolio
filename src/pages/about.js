@@ -48,7 +48,10 @@ const AboutPage = ({ data }) => {
               About
               <span className={classes.span}> Me</span>
             </Typography>
-            <Typography variant="body1">
+            <Typography
+              variant="body1"
+              style={{ marginTop: "2rem", textAlign: "justify" }}
+            >
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa,
               consectetur. Sapiente sed ut veniam, rerum nesciunt fugit dolore
               dicta, voluptate minima, aliquam unde. Consequuntur repudiandae
