@@ -68,8 +68,8 @@ const IndexPage = ({ data }) => {
 
   console.log(data)
   const source = theme
-    ? data.allImageSharp.nodes[2].fluid
-    : data.allImageSharp.nodes[1].fluid
+    ? data.allImageSharp.nodes[1].fluid
+    : data.allImageSharp.nodes[0].fluid
 
   const style = {
     backgroundSize: "cover",

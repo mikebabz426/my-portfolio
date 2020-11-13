@@ -15,6 +15,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import { makeStyles } from "@material-ui/core/styles"
 import MobileLinks from "./mobileLinks"
+import Logo from "../assets/logo.svg"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -61,9 +62,14 @@ const useStyles = makeStyles(theme => ({
   linkSelected: {
     borderBottom: `.1rem solid #c5cae9`,
   },
+  logo: {
+    width: 50,
+    height: 50,
+    margin: ".2rem",
+  },
 }))
 
-const Header = ({ siteTitle, themeHandler, themeState }) => {
+const Header = ({ themeHandler, themeState }) => {
   const classes = useStyles()
   const [menu, setMenu] = useState(false)
 
@@ -82,11 +88,10 @@ const Header = ({ siteTitle, themeHandler, themeState }) => {
             <Link
               to="/"
               style={{
-                color: `white`,
                 textDecoration: `none`,
               }}
             >
-              <Typography variant="h5">{siteTitle}</Typography>
+              <Logo className={classes.logo} />
             </Link>
 
             <Box className={classes.container}>

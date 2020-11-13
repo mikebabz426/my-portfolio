@@ -20,11 +20,7 @@ const Layout = ({ children }) => {
 
   return (
     <CssBaseline>
-      <Header
-        siteTitle={data.site.siteMetadata?.title || `Title`}
-        themeHandler={() => setTheme(!theme)}
-        themeState={theme}
-      />
+      <Header themeHandler={() => setTheme(!theme)} themeState={theme} />
       {children}
     </CssBaseline>
   )

@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
 
 const AboutPage = ({ data }) => {
   const classes = useStyles()
-  const source = data.allImageSharp.nodes[0].fluid
+  const source = data.allImageSharp.nodes[2].fluid
 
   const style = {
     backgroundSize: "cover",
@@ -34,7 +34,7 @@ const AboutPage = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title="Projects" />
+      <SEO title="About" />
       <Container maxWidth="lg" className={classes.root}>
         <Grid
           className={classes.grid}
