@@ -1,6 +1,7 @@
 import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import ContactMeSvg from "../assets/contact.svg"
 import {
   Container,
   Typography,
@@ -9,7 +10,6 @@ import {
   Button,
 } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
-import ContactMeSvg from "../assets/contact.svg"
 import * as Yup from "yup"
 import { Formik, Form, Field } from "formik"
 
@@ -34,6 +34,9 @@ const useStyles = makeStyles(theme => ({
     width: 400,
     height: 400,
     marginTop: "3rem",
+  },
+  field: {
+    color: theme.palette.grey[50],
   },
 }))
 
@@ -72,11 +75,12 @@ const ContactPage = () => {
                 return (
                   <Form>
                     <Field
+                      className={classes.field}
                       name="name"
                       type="input"
                       variant="outlined"
                       margin="normal"
-                      label="Your Name"
+                      label="Name"
                       required
                       fullWidth
                       as={TextField}
@@ -87,11 +91,12 @@ const ContactPage = () => {
                       </Typography>
                     ) : null}
                     <Field
+                      color="secondary"
                       name="email"
                       type="input"
                       variant="outlined"
                       margin="normal"
-                      label="Your Email"
+                      label="Email"
                       required
                       fullWidth
                       as={TextField}
@@ -102,11 +107,12 @@ const ContactPage = () => {
                       </Typography>
                     ) : null}
                     <Field
+                      className={classes.field}
                       name="message"
                       type="input"
                       variant="outlined"
                       margin="normal"
-                      label="Your message"
+                      label="Message"
                       required
                       fullWidth
                       multiline
@@ -124,7 +130,7 @@ const ContactPage = () => {
                       type="submit"
                       fullWidth
                       variant="contained"
-                      color="primary"
+                      color="secondary"
                       className={classes.submit}
                     >
                       Send

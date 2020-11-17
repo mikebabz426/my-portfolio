@@ -63,6 +63,9 @@ const useStyles = makeStyles(theme => ({
     marginTop: "5rem",
     textAlign: "justify",
   },
+  headers: {
+    textAlign: "left",
+  },
   social: {
     marginTop: "1rem",
     padding: "1rem",
@@ -75,6 +78,7 @@ const useStyles = makeStyles(theme => ({
     "&:hover": {
       color: theme.palette.secondary.light,
       textDecoration: "none",
+      cursor: "pointer",
     },
   },
 }))
@@ -135,8 +139,7 @@ const IndexPage = ({ data }) => {
                 textDecoration: "none",
               }}
               target="_blank"
-              component={Link}
-              to="https://www.linkedin.com/in/mike-babetchki-34a150102/"
+              href="https://www.linkedin.com/in/mike-babetchki-34a150102/"
             >
               <LinkedInIcon
                 color="secondary"
@@ -148,9 +151,8 @@ const IndexPage = ({ data }) => {
               style={{
                 textDecoration: "none",
               }}
-              component={Link}
               target="_blank"
-              to="https://github.com/mikebabz426"
+              href="https://github.com/mikebabz426"
             >
               <GitHubIcon
                 color="secondary"
@@ -176,6 +178,7 @@ const IndexPage = ({ data }) => {
           <Grid item>
             <Card raised className={classes.card}>
               <CardHeader
+                className={classes.headers}
                 title="Front-End Technologies"
                 avatar={
                   <Avatar aria-label="web">
@@ -209,6 +212,7 @@ const IndexPage = ({ data }) => {
             <Card raised className={classes.card}>
               <CardHeader
                 title="Design Tools"
+                className={classes.headers}
                 avatar={
                   <Avatar aria-label="web">
                     <BrushIcon color="primary" />
@@ -239,6 +243,7 @@ const IndexPage = ({ data }) => {
             <Card raised className={classes.card}>
               <CardHeader
                 title="CSS Frameworks & Tools"
+                className={classes.headers}
                 avatar={
                   <Avatar aria-label="web">
                     <LayersIcon color="primary" />
