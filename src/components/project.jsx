@@ -15,9 +15,6 @@ function getModalStyle() {
 }
 
 const useStyles = makeStyles(theme => ({
-  grid: {
-    margin: "1rem",
-  },
   paper: {
     position: "absolute",
     display: "flex",
@@ -38,10 +35,22 @@ const useStyles = makeStyles(theme => ({
     alignItems: "center",
     justifyContent: "space-between",
   },
-  modal: {
+  pic: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-end",
     "&:hover": {
       cursor: "pointer",
     },
+  },
+  text: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  heading: {
+    marginBottom: "1rem",
   },
 }))
 
@@ -51,10 +60,6 @@ const style = {
   backgroundRepeat: "no-repeat",
   width: "300px",
   height: "250px",
-  margin: "auto",
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
 }
 
 const Project = ({ project, source }) => {
@@ -74,8 +79,8 @@ const Project = ({ project, source }) => {
     <div style={modalStyle} className={classes.paper}>
       <BackgroundImage
         style={{
-          width: 750,
-          height: 500,
+          width: "95%",
+          height: "85%",
         }}
         fluid={source}
       ></BackgroundImage>
@@ -91,18 +96,16 @@ const Project = ({ project, source }) => {
   )
 
   return (
-    <Grid
-      className={classes.grid}
-      container
-      spacing={2}
-      justify="center"
-      align="center"
-    >
-      <Grid item md={6}>
-        <Typography variant="h3">{project.name}</Typography>
-        <Typography variant="body1">{project.description}</Typography>
+    <Grid container spacing={3} justify="center" align="center">
+      <Grid item md={4} className={classes.text}>
+        <Typography variant="h4" className={classes.heading}>
+          {project.name}
+        </Typography>
+        <Typography variant="body1" align="justify">
+          {project.description}
+        </Typography>
       </Grid>
-      <Grid item md={6} className={classes.modal}>
+      <Grid item md={4} className={classes.pic}>
         <BackgroundImage
           onClick={handleOpen}
           style={style}
