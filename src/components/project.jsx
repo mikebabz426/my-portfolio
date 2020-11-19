@@ -2,6 +2,8 @@ import React, { useState } from "react"
 import { Grid, Typography, Modal, Box, Button } from "@material-ui/core"
 import BackgroundImage from "gatsby-background-image"
 import { makeStyles } from "@material-ui/core/styles"
+import fleet from "../gifs/fleet.gif"
+import sunset from "../gifs/sunset.gif"
 
 function getModalStyle() {
   const top = 50
@@ -77,18 +79,26 @@ const Project = ({ project, source }) => {
 
   const body = (
     <div style={modalStyle} className={classes.paper}>
-      <BackgroundImage
-        style={{
-          width: "95%",
-          height: "85%",
-        }}
-        fluid={source}
-      ></BackgroundImage>
+      <img
+        src={project.name === "My Fleet Tracker" ? fleet : sunset}
+        alt="My fleet tracker in use"
+        style={{ width: "95%", height: "85%" }}
+      />
       <Box className={classes.btnContainer}>
-        <Button variant="contained" color="primary">
+        <Button
+          variant="contained"
+          color="primary"
+          href={project.git}
+          target="_blank"
+        >
           Code
         </Button>
-        <Button variant="contained" color="primary">
+        <Button
+          variant="contained"
+          color="primary"
+          href={project.url}
+          target="_blank"
+        >
           Demo
         </Button>
       </Box>
