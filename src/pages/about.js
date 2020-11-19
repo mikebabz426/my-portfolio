@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
 
 const AboutPage = ({ data }) => {
   const classes = useStyles()
-  const source = data.allImageSharp.nodes[2].fluid
+  const source = data.allImageSharp.nodes[3].fluid
 
   const style = {
     backgroundSize: "cover",

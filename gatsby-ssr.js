@@ -5,3 +5,9 @@
  */
 
 // You can delete this file if you're not using it
+import React from "react"
+import ThemeContextProvider from "./src/ThemeContext"
+
+export const wrapRootElement = ({ element }) => {
+  return <ThemeContextProvider>{element}</ThemeContextProvider>
+}
