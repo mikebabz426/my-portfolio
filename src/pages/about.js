@@ -3,7 +3,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { graphql } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
-import { Container, Typography, Grid } from "@material-ui/core"
+import { Container, Typography, Grid, Button } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 
 const useStyles = makeStyles(theme => ({
@@ -52,13 +52,28 @@ const AboutPage = ({ data }) => {
               variant="body1"
               style={{ marginTop: "2rem", textAlign: "justify" }}
             >
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa,
-              consectetur. Sapiente sed ut veniam, rerum nesciunt fugit dolore
-              dicta, voluptate minima, aliquam unde. Consequuntur repudiandae
-              veritatis ipsam, omnis quas sed. Omnis illo nostrum, beatae
-              voluptates in optio velit neque architecto corrupti amet
-              inventore. Quos eos blanditiis dolores eum veritatis amet.
+              I am a web developer with a passion for code and an eye for UI/UX
+              design. Instead of giving you the cliche awe inspiring coder
+              origin story and bore you to death, I will simply say that I love
+              making websites and applications and everything in between.
+              Detailed focused, organized and eager to work on projects of all
+              scales and sizes with like minded positive individuals.
             </Typography>
+            <Typography
+              variant="body1"
+              style={{ marginTop: "4rem", textAlign: "justify" }}
+            >
+              Have an idea you'd like to bring to the web? Whether you are a
+              small business owner or another proffessional looking to
+              collaborate, feel free to reach out!
+            </Typography>
+            <Button
+              variant="contained"
+              color="secondary"
+              style={{ marginTop: "1rem" }}
+            >
+              Get in Touch
+            </Button>
           </Grid>
           <Grid item md={6}>
             <BackgroundImage style={style} fluid={source}></BackgroundImage>
