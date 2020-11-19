@@ -4,7 +4,7 @@ import SEO from "../components/seo"
 import { graphql } from "gatsby"
 import { Container, Typography, Divider } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
-import Project from "../components/Project"
+import Project from "../components/project"
 import projectsArr from "../services/services.js"
 
 const useStyles = makeStyles(theme => ({
