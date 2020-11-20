@@ -81,7 +81,7 @@ const ContactPage = () => {
                   headers: {
                     "Content-Type": "application/x-www-form-urlencoded",
                   },
-                  body: encode({ "form-name": "contact-demo", ...values }),
+                  body: encode({ "form-name": "contact", ...values }),
                 })
                   .then(() => {
                     alert("Success")
@@ -97,12 +97,11 @@ const ContactPage = () => {
                 return (
                   <Form
                     name="contact"
-                    method="POST"
                     data-netlify-honeypot="bot-field"
                     data-netlify="true"
                   >
-                    <input type="hidden" name="bot-field" />
-                    <input type="hidden" name="form-name" value="contact" />
+                    <Field type="hidden" name="bot-field" />
+                    <Field type="hidden" name="form-name" value="contact" />
                     <Field
                       className={classes.field}
                       name="name"
