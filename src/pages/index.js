@@ -88,8 +88,8 @@ const IndexPage = ({ data }) => {
   const classes = useStyles()
 
   const source = theme
-    ? data.allImageSharp.nodes[2].fluid
-    : data.allImageSharp.nodes[1].fluid
+    ? data.allImageSharp.nodes[1].fluid
+    : data.allImageSharp.nodes[2].fluid
 
   const style = {
     backgroundSize: "cover",

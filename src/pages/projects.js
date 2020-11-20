@@ -24,7 +24,7 @@ const useStyles = makeStyles(theme => ({
 
 const ProjectsPage = ({ data }) => {
   const classes = useStyles()
-  const sourceOne = data.allImageSharp.nodes[4].fluid
+  const sourceOne = data.allImageSharp.nodes[5].fluid
   const sourceTwo = data.allImageSharp.nodes[0].fluid
 
   return (

@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `MB Dev`,
+    title: `MB Development`,
     description: `A Portfolio website showcasing my work`,
     author: `Mike Babetchki`,
   },
@@ -23,6 +23,7 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-material-ui`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -32,6 +33,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
+        icon: `src/images/icon.png`,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
