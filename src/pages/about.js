@@ -21,7 +21,7 @@ const useStyles = makeStyles(theme => ({
 
 const AboutPage = ({ data }) => {
   const classes = useStyles()
-  const source = data.allImageSharp.nodes[3].fluid
+  const source = data.about.childImageSharp.fluid
 
   const style = {
     backgroundSize: "cover",
@@ -85,9 +85,9 @@ const AboutPage = ({ data }) => {
 }
 export const query = graphql`
   {
-    allImageSharp {
-      nodes {
-        fluid(pngQuality: 100) {
+    about: file(relativePath: { eq: "about.png" }) {
+      childImageSharp {
+        fluid {
           ...GatsbyImageSharpFluid
         }
       }

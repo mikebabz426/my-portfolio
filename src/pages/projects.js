@@ -24,8 +24,8 @@ const useStyles = makeStyles(theme => ({
 
 const ProjectsPage = ({ data }) => {
   const classes = useStyles()
-  const sourceOne = data.allImageSharp.nodes[5].fluid
-  const sourceTwo = data.allImageSharp.nodes[0].fluid
+  const fleet = data.fleet.childImageSharp.fluid
+  const sunset = data.sunset.childImageSharp.fluid
 
   return (
     <Layout>
@@ -37,9 +37,9 @@ const ProjectsPage = ({ data }) => {
         <Typography variant="h5" align="center" className={classes.subheading}>
           here's some of my rescent work
         </Typography>
-        <Project source={sourceOne} project={projectsArr[0]} />
+        <Project source={sunset} project={projectsArr[0]} />
         <Divider light variant="middle" className={classes.divider} />
-        <Project source={sourceTwo} project={projectsArr[1]} />
+        <Project source={fleet} project={projectsArr[1]} />
         <Divider light variant="middle" className={classes.divider} />
       </Container>
     </Layout>
@@ -48,9 +48,16 @@ const ProjectsPage = ({ data }) => {
 
 export const query = graphql`
   {
-    allImageSharp {
-      nodes {
-        fluid(pngQuality: 100) {
+    fleet: file(relativePath: { eq: "fleet.png" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    sunset: file(relativePath: { eq: "sunset.jpg" }) {
+      childImageSharp {
+        fluid {
           ...GatsbyImageSharpFluid
         }
       }

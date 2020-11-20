@@ -87,9 +87,20 @@ const IndexPage = ({ data }) => {
   const [theme] = useContext(ThemeContext)
   const classes = useStyles()
 
+  const frontEnd = [
+    "React",
+    "GatsbyJS",
+    "HTML5",
+    "CSS3",
+    "GraphQL",
+    "Javascript",
+  ]
+  const design = ["Photoshop", "Illustrator", "AdobeXD", "Figma"]
+  const cssTools = ["Material UI", "Bootstrap", "Styled Components", "SASS"]
+
   const source = theme
-    ? data.allImageSharp.nodes[1].fluid
-    : data.allImageSharp.nodes[2].fluid
+    ? data.lightImage.childImageSharp.fluid
+    : data.darkImage.childImageSharp.fluid
 
   const style = {
     backgroundSize: "cover",
@@ -187,24 +198,14 @@ const IndexPage = ({ data }) => {
                 }
               />
               <CardContent>
-                <Chip color="primary" className={classes.chip} label="React" />
-                <Chip
-                  color="primary"
-                  className={classes.chip}
-                  label="GatsbyJS"
-                />
-                <Chip color="primary" className={classes.chip} label="HTML5" />
-                <Chip color="primary" className={classes.chip} label="CSS3" />
-                <Chip
-                  color="primary"
-                  className={classes.chip}
-                  label="GraphQL"
-                />
-                <Chip
-                  color="primary"
-                  className={classes.chip}
-                  label="Javascript"
-                />
+                {frontEnd.map(tech => (
+                  <Chip
+                    color="primary"
+                    className={classes.chip}
+                    label={tech}
+                    key={tech}
+                  />
+                ))}
               </CardContent>
             </Card>
           </Grid>
@@ -220,22 +221,14 @@ const IndexPage = ({ data }) => {
                 }
               />
               <CardContent>
-                <Chip
-                  color="primary"
-                  className={classes.chip}
-                  label="Photoshop"
-                />
-                <Chip
-                  color="primary"
-                  className={classes.chip}
-                  label="Illustrator"
-                />
-                <Chip
-                  color="primary"
-                  className={classes.chip}
-                  label="Adobe XD"
-                />
-                <Chip color="primary" className={classes.chip} label="Figma" />
+                {design.map(tech => (
+                  <Chip
+                    color="primary"
+                    className={classes.chip}
+                    label={tech}
+                    key={tech}
+                  />
+                ))}
               </CardContent>
             </Card>
           </Grid>
@@ -251,22 +244,14 @@ const IndexPage = ({ data }) => {
                 }
               />
               <CardContent>
-                <Chip
-                  color="primary"
-                  className={classes.chip}
-                  label="Material UI"
-                />
-                <Chip
-                  color="primary"
-                  className={classes.chip}
-                  label="Bootstrap"
-                />
-                <Chip
-                  color="primary"
-                  className={classes.chip}
-                  label="Styled Components"
-                />
-                <Chip color="primary" className={classes.chip} label="SASS" />
+                {cssTools.map(tech => (
+                  <Chip
+                    color="primary"
+                    className={classes.chip}
+                    label={tech}
+                    key={tech}
+                  />
+                ))}
               </CardContent>
             </Card>
           </Grid>
@@ -289,15 +274,18 @@ const IndexPage = ({ data }) => {
   )
 }
 
-//I believe the most important skill for a web developer is his ability to learn and adapt to new tech trends in this rapidly changing space that is Web Development.
-//Here are some of the technologies I am currently learning and planning on incorporating into my workflow very soon
-//Docker / Kubernetes /
-
 export const query = graphql`
   {
-    allImageSharp {
-      nodes {
-        fluid(pngQuality: 100) {
+    darkImage: file(relativePath: { eq: "showcase-dark.png" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    lightImage: file(relativePath: { eq: "showcase-light.png" }) {
+      childImageSharp {
+        fluid {
           ...GatsbyImageSharpFluid
         }
       }
