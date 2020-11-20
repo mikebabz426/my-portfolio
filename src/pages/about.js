@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 import { Container, Typography, Grid, Button } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
@@ -16,6 +16,9 @@ const useStyles = makeStyles(theme => ({
   },
   span: {
     color: "#3f51b5",
+  },
+  link: {
+    textDecoration: "none",
   },
 }))
 
@@ -67,13 +70,15 @@ const AboutPage = ({ data }) => {
               small business owner or another proffessional looking to
               collaborate, feel free to reach out!
             </Typography>
-            <Button
-              variant="contained"
-              color="secondary"
-              style={{ marginTop: "1rem" }}
-            >
-              Get in Touch
-            </Button>
+            <Link to="/contact" className={classes.link}>
+              <Button
+                variant="contained"
+                color="secondary"
+                style={{ marginTop: "1rem" }}
+              >
+                Get in Touch
+              </Button>
+            </Link>
           </Grid>
           <Grid item md={6}>
             <BackgroundImage style={style} fluid={source}></BackgroundImage>
