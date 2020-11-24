@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useState, useEffect } from "react"
 import Layout from "../components/layout"
 import BackgroundImage from "gatsby-background-image"
 import SEO from "../components/seo"
@@ -16,6 +16,7 @@ import {
   Chip,
   Avatar,
   Link as MuiLink,
+  Collapse,
 } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import WebIcon from "@material-ui/icons/Web"
@@ -66,6 +67,11 @@ const useStyles = makeStyles(theme => ({
   headers: {
     textAlign: "left",
   },
+  buttonBox: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
   social: {
     marginTop: "1rem",
     padding: "1rem",
@@ -86,6 +92,9 @@ const useStyles = makeStyles(theme => ({
 const IndexPage = ({ data }) => {
   const [theme] = useContext(ThemeContext)
   const classes = useStyles()
+  const [animation, setAnimation] = useState(false)
+
+  useEffect(() => setAnimation(true), [])
 
   const frontEnd = [
     "React",
@@ -117,62 +126,68 @@ const IndexPage = ({ data }) => {
     <Layout>
       <SEO title="Home" />
       <BackgroundImage style={style} fluid={source}>
-        <Box className={classes.container}>
-          <Typography variant="h5" align="center" className={classes.type}>
-            Hello
-          </Typography>
-          <Typography variant="h2" align="center" className={classes.type}>
-            My name is Mike,
-          </Typography>
-          <Typography variant="h5" align="center" className={classes.type}>
-            and I turn your ideas into clean and user-friendly web solutions
-          </Typography>
-          <Box>
-            <Link to="/about" className={classes.link}>
-              <Button variant="outlined" className={classes.btn}>
-                About Me
-              </Button>
-            </Link>
-            <Link to="/projects" className={classes.link}>
-              <Button
-                size="large"
-                variant="contained"
-                color="secondary"
-                className={classes.btn}
+        <Collapse
+          in={animation}
+          timeout={1000}
+          style={{ margin: "0 auto", width: "70%" }}
+        >
+          <Box className={classes.container}>
+            <Typography variant="h5" align="center" className={classes.type}>
+              Hello
+            </Typography>
+            <Typography variant="h2" align="center" className={classes.type}>
+              My name is Mike,
+            </Typography>
+            <Typography variant="h5" align="center" className={classes.type}>
+              and I turn your ideas into clean and user-friendly web solutions
+            </Typography>
+            <Box className={classes.buttonBox}>
+              <Link to="/about" className={classes.link}>
+                <Button variant="outlined" className={classes.btn}>
+                  About Me
+                </Button>
+              </Link>
+              <Link to="/projects" className={classes.link}>
+                <Button
+                  size="large"
+                  variant="contained"
+                  color="secondary"
+                  className={classes.btn}
+                >
+                  My Work
+                </Button>
+              </Link>
+            </Box>
+            <Box className={classes.social}>
+              <MuiLink
+                style={{
+                  textDecoration: "none",
+                }}
+                target="_blank"
+                href="https://www.linkedin.com/in/mike-babetchki-34a150102/"
               >
-                My Work
-              </Button>
-            </Link>
+                <LinkedInIcon
+                  color="secondary"
+                  fontSize="large"
+                  className={classes.socialLink}
+                />
+              </MuiLink>
+              <MuiLink
+                style={{
+                  textDecoration: "none",
+                }}
+                target="_blank"
+                href="https://github.com/mikebabz426"
+              >
+                <GitHubIcon
+                  color="secondary"
+                  fontSize="large"
+                  className={classes.socialLink}
+                />
+              </MuiLink>
+            </Box>
           </Box>
-          <Box className={classes.social}>
-            <MuiLink
-              style={{
-                textDecoration: "none",
-              }}
-              target="_blank"
-              href="https://www.linkedin.com/in/mike-babetchki-34a150102/"
-            >
-              <LinkedInIcon
-                color="secondary"
-                fontSize="large"
-                className={classes.socialLink}
-              />
-            </MuiLink>
-            <MuiLink
-              style={{
-                textDecoration: "none",
-              }}
-              target="_blank"
-              href="https://github.com/mikebabz426"
-            >
-              <GitHubIcon
-                color="secondary"
-                fontSize="large"
-                className={classes.socialLink}
-              />
-            </MuiLink>
-          </Box>
-        </Box>
+        </Collapse>
       </BackgroundImage>
       <Container maxWidth="lg" className={classes.section}>
         <Typography variant="h2" align="center">
