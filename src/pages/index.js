@@ -206,7 +206,7 @@ const IndexPage = ({ data }) => {
         >
           <Grid item>
             <Fade in={inView} timeout={1000}>
-              <Card raised className={classes.card} ref={ref}>
+              <Card raised className={classes.card}>
                 <CardHeader
                   className={classes.headers}
                   title="Front-End Technologies"
@@ -256,7 +256,7 @@ const IndexPage = ({ data }) => {
           </Grid>
           <Grid item>
             <Fade in={inView} timeout={1500}>
-              <Card raised className={classes.card}>
+              <Card raised className={classes.card} ref={ref}>
                 <CardHeader
                   title="CSS Frameworks & Tools"
                   className={classes.headers}
