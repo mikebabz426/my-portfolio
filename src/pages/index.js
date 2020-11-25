@@ -17,6 +17,7 @@ import {
   Avatar,
   Link as MuiLink,
   Collapse,
+  Fade,
 } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import WebIcon from "@material-ui/icons/Web"
@@ -24,6 +25,7 @@ import BrushIcon from "@material-ui/icons/Brush"
 import LayersIcon from "@material-ui/icons/Layers"
 import GitHubIcon from "@material-ui/icons/GitHub"
 import LinkedInIcon from "@material-ui/icons/LinkedIn"
+import { useInView } from "react-intersection-observer"
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -93,6 +95,7 @@ const IndexPage = ({ data }) => {
   const [theme] = useContext(ThemeContext)
   const classes = useStyles()
   const [animation, setAnimation] = useState(false)
+  const { ref, inView } = useInView()
 
   useEffect(() => setAnimation(true), [])
 
@@ -128,8 +131,8 @@ const IndexPage = ({ data }) => {
       <BackgroundImage style={style} fluid={source}>
         <Collapse
           in={animation}
-          timeout={1000}
-          style={{ margin: "0 auto", width: "70%" }}
+          timeout={1200}
+          style={{ margin: "0 auto", width: "100%" }}
         >
           <Box className={classes.container}>
             <Typography variant="h5" align="center" className={classes.type}>
@@ -202,73 +205,79 @@ const IndexPage = ({ data }) => {
           align="center"
         >
           <Grid item>
-            <Card raised className={classes.card}>
-              <CardHeader
-                className={classes.headers}
-                title="Front-End Technologies"
-                avatar={
-                  <Avatar aria-label="web">
-                    <WebIcon color="primary" />
-                  </Avatar>
-                }
-              />
-              <CardContent>
-                {frontEnd.map(tech => (
-                  <Chip
-                    color="primary"
-                    className={classes.chip}
-                    label={tech}
-                    key={tech}
-                  />
-                ))}
-              </CardContent>
-            </Card>
+            <Fade in={inView} timeout={1000}>
+              <Card raised className={classes.card} ref={ref}>
+                <CardHeader
+                  className={classes.headers}
+                  title="Front-End Technologies"
+                  avatar={
+                    <Avatar aria-label="web">
+                      <WebIcon color="primary" />
+                    </Avatar>
+                  }
+                />
+                <CardContent>
+                  {frontEnd.map(tech => (
+                    <Chip
+                      color="primary"
+                      className={classes.chip}
+                      label={tech}
+                      key={tech}
+                    />
+                  ))}
+                </CardContent>
+              </Card>
+            </Fade>
           </Grid>
           <Grid item>
-            <Card raised className={classes.card}>
-              <CardHeader
-                title="Design Tools"
-                className={classes.headers}
-                avatar={
-                  <Avatar aria-label="web">
-                    <BrushIcon color="primary" />
-                  </Avatar>
-                }
-              />
-              <CardContent>
-                {design.map(tech => (
-                  <Chip
-                    color="primary"
-                    className={classes.chip}
-                    label={tech}
-                    key={tech}
-                  />
-                ))}
-              </CardContent>
-            </Card>
+            <Fade in={inView} timeout={1250}>
+              <Card raised className={classes.card}>
+                <CardHeader
+                  title="Design Tools"
+                  className={classes.headers}
+                  avatar={
+                    <Avatar aria-label="web">
+                      <BrushIcon color="primary" />
+                    </Avatar>
+                  }
+                />
+                <CardContent>
+                  {design.map(tech => (
+                    <Chip
+                      color="primary"
+                      className={classes.chip}
+                      label={tech}
+                      key={tech}
+                    />
+                  ))}
+                </CardContent>
+              </Card>
+            </Fade>
           </Grid>
           <Grid item>
-            <Card raised className={classes.card}>
-              <CardHeader
-                title="CSS Frameworks & Tools"
-                className={classes.headers}
-                avatar={
-                  <Avatar aria-label="web">
-                    <LayersIcon color="primary" />
-                  </Avatar>
-                }
-              />
-              <CardContent>
-                {cssTools.map(tech => (
-                  <Chip
-                    color="primary"
-                    className={classes.chip}
-                    label={tech}
-                    key={tech}
-                  />
-                ))}
-              </CardContent>
-            </Card>
+            <Fade in={inView} timeout={1500}>
+              <Card raised className={classes.card}>
+                <CardHeader
+                  title="CSS Frameworks & Tools"
+                  className={classes.headers}
+                  avatar={
+                    <Avatar aria-label="web">
+                      <LayersIcon color="primary" />
+                    </Avatar>
+                  }
+                />
+                <CardContent>
+                  {cssTools.map(tech => (
+                    <Chip
+                      color="primary"
+                      className={classes.chip}
+                      label={tech}
+                      key={tech}
+                    />
+                  ))}
+                </CardContent>
+              </Card>
+            </Fade>
           </Grid>
         </Grid>
         <Container maxWidth="md" className={classes.closing}>
