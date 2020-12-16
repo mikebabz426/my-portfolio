@@ -63,7 +63,7 @@ export const query = graphql`
         }
       }
     }
-    sunset: file(relativePath: { eq: "sunset.jpg" }) {
+    sunset: file(relativePath: { eq: "sunset.png" }) {
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid

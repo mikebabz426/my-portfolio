@@ -3,8 +3,8 @@ const projectsArr = [
     name: "Sunset Canines",
     description:
       "Sunset Canines is a company out of Arizona which specializes in providing proffessional pet training around the country.  They reached out to me to see if I would be able to assist with establishing a web presence for their company.  Due to their minimalistic needs, we decided on an informational site using GatsbyJS and optimizing for functionality and speed.",
-    url: "https://sunsetcanines.netlify.app/",
-    git: "https://github.com/mikebabz426/sunset-canines",
+    url: "https://sunset-canines.netlify.app/",
+    git: "https://github.com/mikebabz426/sunset-revamp",
   },
   {
     name: "My Fleet Tracker",

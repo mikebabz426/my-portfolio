@@ -82,7 +82,7 @@ const Project = ({ project, source }) => {
       <img
         src={project.name === "My Fleet Tracker" ? fleet : sunset}
         alt="My fleet tracker in use"
-        style={{ width: "95%", height: "85%" }}
+        style={{ width: "750px", height: "500px" }}
       />
       <Box className={classes.btnContainer}>
         <Button
