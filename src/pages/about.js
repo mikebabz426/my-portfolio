@@ -62,19 +62,17 @@ const AboutPage = ({ data }) => {
               </Typography>
               <Typography
                 variant="body1"
-                style={{ marginTop: "2rem", textAlign: "justify" }}
+                style={{ marginTop: "2rem", textAlign: "left" }}
               >
                 I am a web developer with a passion for code and an eye for
-                UI/UX design. Instead of giving you the cliche awe inspiring
-                coder origin story and bore you to death, I will simply say that
-                I love making websites and applications and everything in
-                between. Detailed focused, organized and eager to work on
-                projects of all scales and sizes with like minded positive
-                individuals.
+                UI/UX design. I love making websites and applications and
+                everything in between. Detailed focused, organized and eager to
+                work on projects of all scales and sizes with like minded
+                positive individuals.
               </Typography>
               <Typography
                 variant="body1"
-                style={{ marginTop: "4rem", textAlign: "justify" }}
+                style={{ marginTop: "3rem", textAlign: "left" }}
               >
                 Have an idea you'd like to bring to the web? Whether you are a
                 small business owner or another proffessional looking to

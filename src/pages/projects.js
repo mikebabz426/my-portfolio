@@ -27,6 +27,7 @@ const ProjectsPage = ({ data }) => {
   const classes = useStyles()
   const fleet = data.fleet.childImageSharp.fluid
   const sunset = data.sunset.childImageSharp.fluid
+  const lucky = data.lucky.childImageSharp.fluid
   const { ref, inView } = useInView()
 
   return (
@@ -44,9 +45,11 @@ const ProjectsPage = ({ data }) => {
           >
             here's some of my rescent work
           </Typography>
-          <Project source={sunset} project={projectsArr[0]} />
+          <Project source={fleet} project={projectsArr[0]} />
           <Divider light variant="middle" className={classes.divider} />
-          <Project source={fleet} project={projectsArr[1]} />
+          <Project source={sunset} project={projectsArr[1]} />
+          <Divider light variant="middle" className={classes.divider} />
+          <Project source={lucky} project={projectsArr[2]} />
           <Divider light variant="middle" className={classes.divider} />
         </Container>
       </Fade>
@@ -56,7 +59,7 @@ const ProjectsPage = ({ data }) => {
 
 export const query = graphql`
   {
-    fleet: file(relativePath: { eq: "fleet.png" }) {
+    fleet: file(relativePath: { eq: "fleet.jpg" }) {
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid
@@ -64,6 +67,13 @@ export const query = graphql`
       }
     }
     sunset: file(relativePath: { eq: "sunset.png" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    lucky: file(relativePath: { eq: "lucky.png" }) {
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid

@@ -30,7 +30,9 @@ const TechStack = ({ project }) => {
 
   return (
     <Box className={classes.container}>
-      <Typography variant="h5">Tech Stack:</Typography>
+      <Typography variant="h5" align="left">
+        Tech Stack:
+      </Typography>
       <Box className={classes.listsContainer}>
         <Box className={classes.list}>
           <Typography
@@ -44,18 +46,20 @@ const TechStack = ({ project }) => {
             <Tech name={tech} />
           ))}
         </Box>
-        <Box className={classes.list}>
-          <Typography
-            align="left"
-            className={classes.subhead}
-            style={{ fontWeight: "bold" }}
-          >
-            Back-end:
-          </Typography>
-          {back.map(tech => (
-            <Tech name={tech} />
-          ))}
-        </Box>
+        {back.length !== 0 ? (
+          <Box className={classes.list}>
+            <Typography
+              align="left"
+              className={classes.subhead}
+              style={{ fontWeight: "bold" }}
+            >
+              Back-end:
+            </Typography>
+            {back.map(tech => (
+              <Tech name={tech} />
+            ))}
+          </Box>
+        ) : null}
       </Box>
     </Box>
   )

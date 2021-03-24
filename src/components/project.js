@@ -4,6 +4,7 @@ import BackgroundImage from "gatsby-background-image"
 import { makeStyles } from "@material-ui/core/styles"
 import fleet from "../gifs/fleet.gif"
 import sunset from "../gifs/sunset.gif"
+import lucky from "../gifs/lucky.gif"
 import TechStack from "../components/techStack"
 
 function getModalStyle() {
@@ -91,7 +92,13 @@ const Project = ({ project, source }) => {
   const body = (
     <div style={modalStyle} className={classes.paper}>
       <img
-        src={project.name === "My Fleet Tracker" ? fleet : sunset}
+        src={
+          project.name === "My Fleet Tracker"
+            ? fleet
+            : project.name === "Sunset Canines"
+            ? sunset
+            : lucky
+        }
         alt="My fleet tracker in use"
         style={{ width: "750px", height: "400px" }}
       />
