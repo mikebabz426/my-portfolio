@@ -4,6 +4,7 @@ import BackgroundImage from "gatsby-background-image"
 import { makeStyles } from "@material-ui/core/styles"
 import fleet from "../gifs/fleet.gif"
 import sunset from "../gifs/sunset.gif"
+import TechStack from "../components/techStack"
 
 function getModalStyle() {
   const top = 50
@@ -54,6 +55,16 @@ const useStyles = makeStyles(theme => ({
   heading: {
     marginBottom: "1rem",
   },
+  svg: {
+    width: 40,
+    height: 40,
+    margin: "0 .5rem",
+  },
+  stackContainer: {
+    margin: "1rem 0",
+    display: "flex",
+    alignItems: "center",
+  },
 }))
 
 const style = {
@@ -82,7 +93,7 @@ const Project = ({ project, source }) => {
       <img
         src={project.name === "My Fleet Tracker" ? fleet : sunset}
         alt="My fleet tracker in use"
-        style={{ width: "750px", height: "500px" }}
+        style={{ width: "750px", height: "400px" }}
       />
       <Box className={classes.btnContainer}>
         <Button
@@ -106,31 +117,36 @@ const Project = ({ project, source }) => {
   )
 
   return (
-    <Grid container spacing={3} justify="center" align="center">
-      <Grid item md={4} className={classes.text}>
-        <Typography variant="h4" className={classes.heading}>
-          {project.name}
-        </Typography>
-        <Typography variant="body1" align="justify">
-          {project.description}
-        </Typography>
+    <>
+      <Grid container spacing={3} justify="center" align="center">
+        <Grid item md={4} className={classes.text}>
+          <Typography variant="h4" className={classes.heading}>
+            {project.name}
+          </Typography>
+          <Typography variant="body1" align="left">
+            {project.description}
+          </Typography>
+        </Grid>
+        <Grid item md={4}>
+          <TechStack project={project} />
+        </Grid>
+        <Grid item md={4} className={classes.pic}>
+          <BackgroundImage
+            onClick={handleOpen}
+            style={style}
+            fluid={source}
+          ></BackgroundImage>
+        </Grid>
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+        >
+          {body}
+        </Modal>
       </Grid>
-      <Grid item md={4} className={classes.pic}>
-        <BackgroundImage
-          onClick={handleOpen}
-          style={style}
-          fluid={source}
-        ></BackgroundImage>
-      </Grid>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
-      >
-        {body}
-      </Modal>
-    </Grid>
+    </>
   )
 }
 
