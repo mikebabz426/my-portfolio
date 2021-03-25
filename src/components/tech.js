@@ -7,6 +7,8 @@ import MaterialIcon from "../assets/material-ui.svg"
 import HasuraIcon from "../assets/hasuraio-icon.svg"
 import TSIcon from "../assets/typescript.svg"
 import GraphQLIcon from "../assets/graphql-icon.svg"
+import Auth0Icon from "../assets/auth0.svg"
+import EIAIcon from "../assets/Energy_Information_Administration_logo.svg"
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -41,6 +43,8 @@ const Tech = ({ name }) => {
       ) : null}
       {name === "Hasura" ? <HasuraIcon className={classes.icon} /> : null}
       {name === "GraphQL" ? <GraphQLIcon className={classes.icon} /> : null}
+      {name === "API" ? <EIAIcon className={classes.icon} /> : null}
+      {name === "Auth0" ? <Auth0Icon className={classes.icon} /> : null}
       <Typography variant="body1">{name}</Typography>
     </Box>
   )

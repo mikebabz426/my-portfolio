@@ -7,7 +7,7 @@ const projectsArr = [
     git: "https://github.com/mikebabz426/fleet-tracker-revamp",
     stack: {
       front: ["Typescript", "GatsbyJS", "React", "Material-UI"],
-      back: ["Hasura", "GraphQL"],
+      back: ["Hasura", "GraphQL", "Auth0", "API"],
     },
   },
   {
@@ -26,7 +26,7 @@ const projectsArr = [
     git: "https://github.com/mikebabz426/placement-test-suite",
     stack: {
       front: ["Typescript", "GatsbyJS", "React", "Material-UI"],
-      back: ["Hasura", "GraphQL"],
+      back: ["Hasura", "GraphQL", "Auth0"],
     },
   },
 ]
