@@ -3,7 +3,7 @@ const projectsArr = [
     name: "My Fleet Tracker",
     description:
       "   As a veteran of the transportation industry, I have had years of experience working with sub-par software in my day to day job.  The reason I began learning web development is so that I would have the ability to build better software that I would be able to use myself in the logistics sector.  MyFleetTracker is my first such application, designed to increase the productivity of dispatchers and minimize communication issues between colleagues. One of the many features of this application is its leveraging of the EIA.gov API (US Energy Information Administration), to provide users with current diesel price averages, which directly impacts negotiations with brokers for freight lane prices.  ",
-    url: "https://fleet-speed.netlify.app/",
+    url: "https://fleet-tracker-demo.netlify.app/",
     git: "https://github.com/mikebabz426/fleet-tracker-revamp",
     stack: {
       front: ["Typescript", "GatsbyJS", "React", "Material-UI"],
