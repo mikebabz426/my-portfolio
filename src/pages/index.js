@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react"
 import Layout from "../components/layout"
+import AboutSection from "../components/sections/About"
 import BackgroundImage from "gatsby-background-image"
 import SEO from "../components/seo"
 import { graphql, Link } from "gatsby"
@@ -305,8 +306,8 @@ const IndexPage = ({ data }) => {
             I believe the most important skill for a developer is his ability to
             learn and adapt to new tech trends in this rapidly changing space
             that is Web Development. Here are some of the technologies I am
-            currently learning and planning on incorporating into my workflow
-            very soon.
+            currently working with and planning on incorporating into my
+            workflow very soon.
           </Typography>
           <Box style={{ display: "flex", margin: "2rem" }}>
             <Chip color="primary" label="Docker" className={classes.chip} />
@@ -314,6 +315,7 @@ const IndexPage = ({ data }) => {
           </Box>
         </Container>
       </Container>
+      <AboutSection />
     </Layout>
   )
 }
