@@ -75,7 +75,7 @@ const AboutPage = ({ data }) => {
                 style={{ marginTop: "3rem", textAlign: "left" }}
               >
                 Have an idea you'd like to bring to the web? Whether you are a
-                small business owner or another proffessional looking to
+                small business owner or another developer looking to
                 collaborate, feel free to reach out!
               </Typography>
               <Link to="/contact" className={classes.link}>
