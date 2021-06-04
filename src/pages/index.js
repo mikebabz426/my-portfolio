@@ -5,6 +5,7 @@ import SEO from "../components/seo"
 import { graphql, Link } from "gatsby"
 import { ThemeContext } from "./../ThemeContext"
 import {
+  IconButton,
   Grid,
   Typography,
   Box,
@@ -19,6 +20,7 @@ import {
   Collapse,
   Fade,
 } from "@material-ui/core"
+import ArrowDDIcon from "@material-ui/icons/ExpandMore"
 import { makeStyles } from "@material-ui/core/styles"
 import WebIcon from "@material-ui/icons/Web"
 import BrushIcon from "@material-ui/icons/Brush"
@@ -89,6 +91,19 @@ const useStyles = makeStyles(theme => ({
       cursor: "pointer",
     },
   },
+  scroll: {
+    position: "absolute",
+    bottom: "8%",
+  },
+  skills: {
+    textDecoration: "none",
+    color: "#3f51b5",
+    background: "transparent",
+    "&:visited": {
+      textDecoration: "none",
+      color: "#3f51b5",
+    },
+  },
 }))
 
 const IndexPage = ({ data }) => {
@@ -128,7 +143,7 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Home" />
-      <BackgroundImage style={style} fluid={source}>
+      <BackgroundImage className="bgImage" style={style} fluid={source}>
         <Collapse
           in={animation}
           timeout={1200}
@@ -189,10 +204,15 @@ const IndexPage = ({ data }) => {
                 />
               </MuiLink>
             </Box>
+            <IconButton color="secondary" className={classes.scroll}>
+              <Link href="#skills" className={classes.skills}>
+                <ArrowDDIcon fontSize="large" />
+              </Link>
+            </IconButton>
           </Box>
         </Collapse>
       </BackgroundImage>
-      <Container maxWidth="lg" className={classes.section}>
+      <Container maxWidth="lg" className={classes.section} id="skills">
         <Typography variant="h2" align="center">
           Here's an overview of some of my skills
         </Typography>

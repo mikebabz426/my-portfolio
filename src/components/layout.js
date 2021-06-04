@@ -1,5 +1,6 @@
 import React, { useContext } from "react"
 import { CssBaseline } from "@material-ui/core"
+import "../../src/main.css"
 import PropTypes from "prop-types"
 import Header from "./header"
 import "fontsource-roboto"
@@ -9,7 +10,7 @@ const Layout = ({ children }) => {
   const [theme, setTheme] = useContext(ThemeContext)
 
   return (
-    <CssBaseline>
+    <CssBaseline style={{ scrollBehavior: "smooth" }}>
       <Header themeHandler={() => setTheme(!theme)} themeState={theme} />
       {children}
     </CssBaseline>
