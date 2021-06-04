@@ -57,7 +57,6 @@ const ProjectsSection = () => {
 
   return (
     <Layout>
-      <SEO title="Projects" />
       <Fade in={inView} timeout={1000}>
         <Container maxWidth="lg" className={classes.root} ref={ref}>
           <Typography variant="h2" align="center" className={classes.heading}>

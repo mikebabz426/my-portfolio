@@ -58,7 +58,6 @@ const AboutSection = () => {
   }
   return (
     <Layout>
-      <SEO title="About" />
       <Container maxWidth="lg" className={classes.root}>
         <Grid
           className={classes.grid}
