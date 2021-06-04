@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react"
 import Layout from "../components/layout"
 import AboutSection from "../components/sections/About"
 import ContactSection from "../components/sections/Contact"
+import ProjectsSection from "../components/sections/Projects"
 import BackgroundImage from "gatsby-background-image"
 import SEO from "../components/seo"
 import { graphql, Link } from "gatsby"
@@ -41,7 +42,7 @@ const useStyles = makeStyles(theme => ({
     alignItems: "center",
   },
   section: {
-    height: "100vh",
+    minHeight: "100vh",
     paddingTop: "7rem",
   },
   card: {
@@ -317,6 +318,7 @@ const IndexPage = ({ data }) => {
         </Container>
       </Container>
       <AboutSection />
+      <ProjectsSection />
       <ContactSection />
     </Layout>
   )

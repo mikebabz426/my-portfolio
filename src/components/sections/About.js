@@ -15,6 +15,9 @@ import { useInView } from "react-intersection-observer"
 
 const useStyles = makeStyles(theme => ({
   root: {
+    backgroundColor: "#f2f2f2",
+    minHeight: "100vh",
+    minWidth: "100vw",
     padding: "3rem",
     margin: "auto",
   },
