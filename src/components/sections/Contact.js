@@ -1,6 +1,4 @@
 import React from "react"
-import Layout from "../../components/layout"
-import SEO from "../../components/seo"
 import ContactMeSvg from "../../assets/contact.svg"
 import {
   Container,

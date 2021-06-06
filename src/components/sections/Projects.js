@@ -1,6 +1,4 @@
 import React from "react"
-import Layout from "../../components/layout"
-import SEO from "../../components/seo"
 import { graphql, useStaticQuery } from "gatsby"
 import { Container, Typography, Divider, Fade } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
@@ -56,28 +54,22 @@ const ProjectsSection = () => {
   const { ref, inView } = useInView()
 
   return (
-    <Layout>
-      <Fade in={inView} timeout={1000}>
-        <Container maxWidth="lg" className={classes.root} ref={ref}>
-          <Typography variant="h2" align="center" className={classes.heading}>
-            Take a look around
-          </Typography>
-          <Typography
-            variant="h5"
-            align="center"
-            className={classes.subheading}
-          >
-            here's some of my rescent work
-          </Typography>
-          <Project source={fleet} project={projectsArr[0]} />
-          <Divider light variant="middle" className={classes.divider} />
-          <Project source={sunset} project={projectsArr[1]} />
-          <Divider light variant="middle" className={classes.divider} />
-          <Project source={lucky} project={projectsArr[2]} />
-          <Divider light variant="middle" className={classes.divider} />
-        </Container>
-      </Fade>
-    </Layout>
+    <Fade in={inView} timeout={1000}>
+      <Container maxWidth="lg" className={classes.root} ref={ref}>
+        <Typography variant="h2" align="center" className={classes.heading}>
+          Take a look around
+        </Typography>
+        <Typography variant="h5" align="center" className={classes.subheading}>
+          here's some of my rescent work
+        </Typography>
+        <Project source={fleet} project={projectsArr[0]} />
+        <Divider light variant="middle" className={classes.divider} />
+        <Project source={sunset} project={projectsArr[1]} />
+        <Divider light variant="middle" className={classes.divider} />
+        <Project source={lucky} project={projectsArr[2]} />
+        <Divider light variant="middle" className={classes.divider} />
+      </Container>
+    </Fade>
   )
 }
 

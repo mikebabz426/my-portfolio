@@ -21,7 +21,7 @@ import { makeStyles } from "@material-ui/core/styles"
 const useStyles = makeStyles(theme => ({
   section: {
     minHeight: "100vh",
-    paddingTop: "7rem",
+    paddingTop: "10rem",
   },
   card: {
     minWidth: 275,
@@ -49,9 +49,8 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const SkillsSection = () => {
-  const [theme] = useContext(ThemeContext)
   const classes = useStyles()
-  const [animation, setAnimation] = useState(false)
+  const [, setAnimation] = useState(false)
   const { ref, inView } = useInView()
 
   useEffect(() => setAnimation(true), [])
