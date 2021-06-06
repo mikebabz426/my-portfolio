@@ -10,17 +10,20 @@ import {
 } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import { useInView } from "react-intersection-observer"
-import { ThemeContext } from "../../ThemeContext"
+// import { ThemeContext } from "../../ThemeContext"
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: "3rem",
-    margin: "auto",
     backgroundColor: theme.palette.type === "light" ? "#fafafa" : "#222",
+    margin: "auto",
     minHeight: "100vh",
+    clipPath: "polygon(0 0, 100% 20%, 100% 100%, 0 78%)",
   },
   grid: {
-    marginTop: "3rem",
+    backgroundColor: "222",
+    padding: "3rem",
+    height: "100vh",
+    width: "100%",
   },
   span: {
     color: "#3f51b5",
@@ -45,7 +48,7 @@ const AboutSection = () => {
   const classes = useStyles()
   const source = data.about.childImageSharp.fluid
   const { ref, inView } = useInView()
-  const [theme] = useContext(ThemeContext)
+  // const [theme] = useContext(ThemeContext)
 
   const style = {
     backgroundSize: "cover",
@@ -60,9 +63,9 @@ const AboutSection = () => {
       <Grid
         className={classes.grid}
         container
-        spacing={4}
+        spacing={1}
         justify="center"
-        align="center"
+        alignItems="center"
       >
         <Grid item md={6} ref={ref}>
           <Collapse in={inView} timeout={1000}>
