@@ -4,11 +4,10 @@ import AboutSection from "../components/sections/About"
 import ContactSection from "../components/sections/Contact"
 import ProjectsSection from "../components/sections/Projects"
 import SkillsSection from "../components/sections/Skills"
-import BackgroundImage from "gatsby-background-image"
 import SEO from "../components/seo"
-import { graphql, Link } from "gatsby"
-import { ThemeContext } from "./../ThemeContext"
+import { Link } from "gatsby"
 import {
+  Container,
   IconButton,
   Typography,
   Box,
@@ -22,6 +21,14 @@ import GitHubIcon from "@material-ui/icons/GitHub"
 import LinkedInIcon from "@material-ui/icons/LinkedIn"
 
 const useStyles = makeStyles(theme => ({
+  hero: {
+    width: "100vw",
+    height: "100vh",
+    margin: "auto",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
   container: {
     margin: "0 auto",
     width: "70%",
@@ -71,32 +78,16 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const IndexPage = ({ data }) => {
-  const [theme] = useContext(ThemeContext)
+const IndexPage = () => {
   const classes = useStyles()
   const [animation, setAnimation] = useState(false)
 
   useEffect(() => setAnimation(true), [])
 
-  const source = theme
-    ? data.lightImage.childImageSharp.fluid
-    : data.darkImage.childImageSharp.fluid
-
-  const style = {
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-    width: "100vw",
-    height: "100vh",
-    margin: "auto",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-  }
   return (
     <Layout>
       <SEO title="Home" />
-      <BackgroundImage className="bgImage" style={style} fluid={source}>
+      <Container className={classes.hero}>
         <Collapse
           in={animation}
           timeout={1200}
@@ -164,7 +155,7 @@ const IndexPage = ({ data }) => {
             </IconButton>
           </Box>
         </Collapse>
-      </BackgroundImage>
+      </Container>
       <SkillsSection />
       <AboutSection />
       <ProjectsSection />
@@ -172,24 +163,5 @@ const IndexPage = ({ data }) => {
     </Layout>
   )
 }
-
-export const query = graphql`
-  {
-    darkImage: file(relativePath: { eq: "showcase-dark.png" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-    lightImage: file(relativePath: { eq: "showcase-light.png" }) {
-      childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`
 
 export default IndexPage

@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
 import {
@@ -10,11 +10,10 @@ import {
 } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import { useInView } from "react-intersection-observer"
-// import { ThemeContext } from "../../ThemeContext"
 
 const useStyles = makeStyles(theme => ({
   root: {
-    backgroundColor: theme.palette.type === "light" ? "#fafafa" : "#222",
+    backgroundColor: theme.palette.type === "light" ? "#f4f4f4" : "#222",
     margin: "auto",
     minHeight: "100vh",
     clipPath: "polygon(0 0, 100% 20%, 100% 100%, 0 78%)",
