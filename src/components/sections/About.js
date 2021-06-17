@@ -13,7 +13,6 @@ const useStyles = makeStyles(theme => ({
     width: "100vw",
   },
   grid: {
-    backgroundColor: "222",
     padding: "3rem",
     minHeight: "100vh",
     width: "100%",
@@ -55,7 +54,6 @@ const AboutSection = () => {
       <Grid
         className={classes.grid}
         container
-        spacing={10}
         justify="center"
         alignItems="center"
       >
@@ -86,11 +84,11 @@ const AboutSection = () => {
               small business owner or another developer looking to collaborate,
               feel free to reach out!
             </Typography>
-            <Link to="/contact" className={classes.link}>
+            <Link to="#contact" className={classes.link}>
               <Button
                 variant="contained"
                 color="secondary"
-                style={{ marginTop: "1rem" }}
+                style={{ margin: "2rem 0 2rem 0" }}
               >
                 Get in Touch
               </Button>
@@ -102,7 +100,7 @@ const AboutSection = () => {
           style={{ transformOrigin: "0 0 0" }}
           {...(inView ? { timeout: 1500 } : {})}
         >
-          <Grid item md={6}>
+          <Grid item md={6} style={{ marginTop: "2rem" }}>
             <BackgroundImage style={style} fluid={source}></BackgroundImage>
           </Grid>
         </Grow>

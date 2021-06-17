@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import Layout from "../components/layout"
 import AboutSection from "../components/sections/About"
 import ContactSection from "../components/sections/Contact"
@@ -19,6 +19,7 @@ import ArrowDDIcon from "@material-ui/icons/ExpandMore"
 import { makeStyles } from "@material-ui/core/styles"
 import GitHubIcon from "@material-ui/icons/GitHub"
 import LinkedInIcon from "@material-ui/icons/LinkedIn"
+import { ThemeContext } from "../ThemeContext"
 
 const useStyles = makeStyles(theme => ({
   hero: {
@@ -83,11 +84,55 @@ const useStyles = makeStyles(theme => ({
       color: "#3f51b5",
     },
   },
+  showcaseOne: {
+    position: "absolute",
+    color: "#f2f2f2",
+    fontWeight: "bold",
+    left: "10%",
+    top: "-40%",
+    [theme.breakpoints.down("md")]: {
+      display: "none",
+    },
+  },
+  showcaseTwo: {
+    position: "absolute",
+    textTransform: "uppercase",
+    color: "#f2f2f2",
+    fontWeight: "bold",
+    left: "75%",
+    top: "-20%",
+    [theme.breakpoints.down("md")]: {
+      display: "none",
+    },
+  },
+  showcaseThree: {
+    position: "absolute",
+    fontStyle: "uppercase",
+    color: "#f2f2f2",
+    fontWeight: "bold",
+    left: "60%",
+    top: "90%",
+    [theme.breakpoints.down("md")]: {
+      display: "none",
+    },
+  },
+  showcaseFour: {
+    position: "absolute",
+    fontStyle: "uppercase",
+    color: "#f2f2f2",
+    fontWeight: "bold",
+    left: "-20%",
+    top: "70%",
+    [theme.breakpoints.down("md")]: {
+      display: "none",
+    },
+  },
 }))
 
 const IndexPage = () => {
   const classes = useStyles()
   const [animation, setAnimation] = useState(false)
+  const [theme] = useContext(ThemeContext)
 
   useEffect(() => setAnimation(true), [])
 
@@ -101,6 +146,34 @@ const IndexPage = () => {
           style={{ margin: "0 auto", width: "100%" }}
         >
           <Box className={classes.container}>
+            <Typography
+              variant="h1"
+              className={classes.showcaseOne}
+              style={theme ? { color: "#f2f2f2" } : { color: "#2e2e2e" }}
+            >
+              JS
+            </Typography>
+            <Typography
+              variant="h1"
+              className={classes.showcaseTwo}
+              style={theme ? { color: "#f2f2f2" } : { color: "#2e2e2e" }}
+            >
+              React
+            </Typography>
+            <Typography
+              variant="h1"
+              className={classes.showcaseThree}
+              style={theme ? { color: "#f2f2f2" } : { color: "#2e2e2e" }}
+            >
+              GraphQL
+            </Typography>
+            <Typography
+              variant="h1"
+              className={classes.showcaseFour}
+              style={theme ? { color: "#f2f2f2" } : { color: "#2e2e2e" }}
+            >
+              CSS3
+            </Typography>
             <Typography
               variant="h5"
               align="center"
