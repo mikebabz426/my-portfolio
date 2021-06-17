@@ -23,11 +23,15 @@ let contactSchema = Yup.object().shape({
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: "3rem",
+    padding: "4rem 3rem 3rem 3rem",
     margin: "auto",
+    minHeight: "100vh",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   },
   grid: {
-    marginTop: "10rem",
+    marginTop: "3rem",
   },
 
   svg: {
@@ -51,11 +55,14 @@ const ContactSection = () => {
   }
 
   return (
-    <Container maxWidth="lg" className={classes.root}>
+    <Container maxWidth="lg" className={classes.root} id="contact">
+      <Typography variant="h1" color="primary">
+        Contact
+      </Typography>
       <Grid
         className={classes.grid}
         container
-        spacing={10}
+        spacing={5}
         justify="center"
         align="center"
       >

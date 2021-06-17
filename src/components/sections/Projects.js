@@ -55,7 +55,7 @@ const ProjectsSection = () => {
 
   return (
     <Fade in={inView} timeout={1000}>
-      <Container maxWidth="lg" className={classes.root} ref={ref}>
+      <Container maxWidth="lg" className={classes.root} ref={ref} id="projects">
         <Typography variant="h2" align="center" className={classes.heading}>
           Take a look around
         </Typography>

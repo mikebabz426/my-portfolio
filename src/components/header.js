@@ -74,10 +74,10 @@ const Header = ({ themeHandler, themeState }) => {
   const [menu, setMenu] = useState(false)
 
   const links = [
-    { name: "Home", to: "/" },
-    { name: "Projects", to: "/projects" },
-    { name: "About", to: "/about" },
-    { name: "Contact", to: "/contact" },
+    { name: "Home", to: "#hero" },
+    { name: "Projects", to: "#projects" },
+    { name: "About", to: "#about" },
+    { name: "Contact", to: "#contact" },
   ]
 
   return (

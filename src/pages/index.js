@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import Layout from "../components/layout"
 import AboutSection from "../components/sections/About"
 import ContactSection from "../components/sections/Contact"
@@ -87,7 +87,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-      <Container className={classes.hero}>
+      <Container className={classes.hero} id="hero">
         <Collapse
           in={animation}
           timeout={1200}
@@ -104,12 +104,12 @@ const IndexPage = () => {
               and I turn your ideas into clean and user-friendly web solutions
             </Typography>
             <Box className={classes.buttonBox}>
-              <Link to="/about" className={classes.link}>
+              <Link to="#about" className={classes.link}>
                 <Button variant="outlined" className={classes.btn}>
                   About Me
                 </Button>
               </Link>
-              <Link to="/projects" className={classes.link}>
+              <Link to="#projects" className={classes.link}>
                 <Button
                   size="large"
                   variant="contained"
@@ -149,9 +149,9 @@ const IndexPage = () => {
               </MuiLink>
             </Box>
             <IconButton color="secondary" className={classes.scroll}>
-              <Link href="#skills" className={classes.skills}>
+              <MuiLink href="#skills" className={classes.skills}>
                 <ArrowDDIcon fontSize="large" />
-              </Link>
+              </MuiLink>
             </IconButton>
           </Box>
         </Collapse>

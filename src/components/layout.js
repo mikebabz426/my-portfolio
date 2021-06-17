@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
   const [theme, setTheme] = useContext(ThemeContext)
 
   return (
-    <CssBaseline style={{ scrollBehavior: "smooth" }}>
+    <CssBaseline>
       <Header themeHandler={() => setTheme(!theme)} themeState={theme} />
       {children}
     </CssBaseline>

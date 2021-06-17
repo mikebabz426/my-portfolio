@@ -1,22 +1,18 @@
 import React from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import BackgroundImage from "gatsby-background-image"
-import {
-  Container,
-  Typography,
-  Grid,
-  Button,
-  Collapse,
-} from "@material-ui/core"
+import { Container, Typography, Grid, Button } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import { useInView } from "react-intersection-observer"
+import Grow from "@material-ui/core/Grow"
 
 const useStyles = makeStyles(theme => ({
   root: {
     backgroundColor: theme.palette.type === "light" ? "#f4f4f4" : "#222",
     margin: "auto",
     minHeight: "100vh",
-    clipPath: "polygon(0 0, 100% 20%, 100% 100%, 0 78%)",
+    width: "100%",
+    // clipPath: "polygon(0 0, 100% 20%, 100% 100%, 0 78%)",
   },
   grid: {
     backgroundColor: "222",
@@ -58,7 +54,7 @@ const AboutSection = () => {
     margin: "auto",
   }
   return (
-    <Container maxWidth="lg" className={classes.root}>
+    <Container maxWidth="lg" className={classes.root} id="about">
       <Grid
         className={classes.grid}
         container
@@ -66,8 +62,12 @@ const AboutSection = () => {
         justify="center"
         alignItems="center"
       >
-        <Grid item md={6} ref={ref}>
-          <Collapse in={inView} timeout={1000}>
+        <Grow
+          in={inView}
+          style={{ transformOrigin: "0 0 0" }}
+          {...(inView ? { timeout: 1000 } : {})}
+        >
+          <Grid item md={6} ref={ref}>
             <Typography variant="h1">
               About
               <span className={classes.span}> Me</span>
@@ -98,11 +98,17 @@ const AboutSection = () => {
                 Get in Touch
               </Button>
             </Link>
-          </Collapse>
-        </Grid>
-        <Grid item md={6}>
-          <BackgroundImage style={style} fluid={source}></BackgroundImage>
-        </Grid>
+          </Grid>
+        </Grow>
+        <Grow
+          in={inView}
+          style={{ transformOrigin: "0 0 0" }}
+          {...(inView ? { timeout: 1500 } : {})}
+        >
+          <Grid item md={6}>
+            <BackgroundImage style={style} fluid={source}></BackgroundImage>
+          </Grid>
+        </Grow>
       </Grid>
     </Container>
   )

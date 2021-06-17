@@ -1,5 +1,5 @@
-import React, { useContext, useState, useEffect } from "react"
-import { ThemeContext } from "../../ThemeContext"
+import React, { useState, useEffect } from "react"
+
 import {
   Grid,
   Typography,
@@ -157,10 +157,9 @@ const SkillsSection = () => {
       </Grid>
       <Container maxWidth="md" className={classes.closing}>
         <Typography variant="body1">
-          I believe the most important skill for a developer is his ability to
-          learn and adapt to new tech trends in this rapidly changing space that
-          is Web Development. Here are some of the technologies I am currently
-          working with and planning on incorporating into my workflow very soon.
+          I am constantly looking for the latest and greatest in tech. Here are
+          some of the technologies I am currently working with and planning on
+          incorporating into my workflow very soon.
         </Typography>
         <Box style={{ display: "flex", margin: "2rem" }}>
           <Chip color="primary" label="Docker" className={classes.chip} />
