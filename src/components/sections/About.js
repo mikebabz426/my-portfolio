@@ -8,16 +8,14 @@ import Grow from "@material-ui/core/Grow"
 
 const useStyles = makeStyles(theme => ({
   root: {
-    backgroundColor: theme.palette.type === "light" ? "#f4f4f4" : "#222",
     margin: "auto",
     minHeight: "100vh",
-    width: "100%",
-    // clipPath: "polygon(0 0, 100% 20%, 100% 100%, 0 78%)",
+    width: "100vw",
   },
   grid: {
     backgroundColor: "222",
     padding: "3rem",
-    height: "100vh",
+    minHeight: "100vh",
     width: "100%",
   },
   span: {
@@ -43,7 +41,6 @@ const AboutSection = () => {
   const classes = useStyles()
   const source = data.about.childImageSharp.fluid
   const { ref, inView } = useInView()
-  // const [theme] = useContext(ThemeContext)
 
   const style = {
     backgroundSize: "cover",
@@ -58,7 +55,7 @@ const AboutSection = () => {
       <Grid
         className={classes.grid}
         container
-        spacing={1}
+        spacing={10}
         justify="center"
         alignItems="center"
       >
@@ -68,7 +65,7 @@ const AboutSection = () => {
           {...(inView ? { timeout: 1000 } : {})}
         >
           <Grid item md={6} ref={ref}>
-            <Typography variant="h1">
+            <Typography variant="h2">
               About
               <span className={classes.span}> Me</span>
             </Typography>

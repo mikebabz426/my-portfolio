@@ -36,9 +36,13 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "center",
     flexDirection: "column",
     alignItems: "center",
+    position: "relative",
   },
   btn: {
     margin: "1rem .5rem",
+    [theme.breakpoints.down("sm")]: {
+      margin: ".5rem .1rem",
+    },
   },
   link: {
     textDecoration: "none",
@@ -65,7 +69,10 @@ const useStyles = makeStyles(theme => ({
   },
   scroll: {
     position: "absolute",
-    bottom: "8%",
+    bottom: "-50%",
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
   },
   skills: {
     textDecoration: "none",
@@ -94,13 +101,28 @@ const IndexPage = () => {
           style={{ margin: "0 auto", width: "100%" }}
         >
           <Box className={classes.container}>
-            <Typography variant="h5" align="center" className={classes.type}>
+            <Typography
+              variant="h5"
+              align="center"
+              className={classes.type}
+              style={{ marginBottom: "1rem" }}
+            >
               Hello
             </Typography>
-            <Typography variant="h2" align="center" className={classes.type}>
+            <Typography
+              variant="h2"
+              align="center"
+              className={classes.type}
+              style={{ marginBottom: "1rem" }}
+            >
               My name is Mike,
             </Typography>
-            <Typography variant="h5" align="center" className={classes.type}>
+            <Typography
+              variant="h5"
+              align="center"
+              className={classes.type}
+              style={{ marginBottom: "1rem" }}
+            >
               and I turn your ideas into clean and user-friendly web solutions
             </Typography>
             <Box className={classes.buttonBox}>

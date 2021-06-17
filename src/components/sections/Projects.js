@@ -9,6 +9,11 @@ import { useInView } from "react-intersection-observer"
 const useStyles = makeStyles(theme => ({
   root: {
     padding: "6rem 2rem",
+    backgroundColor: theme.palette.type === "light" ? "#f2f2f2" : "#222",
+    clipPath: "polygon(0 0, 100% 4%, 100% 100%, 0 96%)",
+    [theme.breakpoints.down("sm")]: {
+      clipPath: "polygon(0 0, 100% 1%, 100% 100%, 0 99%)",
+    },
   },
   heading: {
     margin: ".5rem 0 0 0",

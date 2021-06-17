@@ -20,8 +20,13 @@ import { makeStyles } from "@material-ui/core/styles"
 
 const useStyles = makeStyles(theme => ({
   section: {
+    backgroundColor: theme.palette.type === "light" ? "#f2f2f2" : "#222",
+    clipPath: "polygon(0 0, 100% 5%, 100% 100%, 0 95%)",
     minHeight: "100vh",
     paddingTop: "10rem",
+    [theme.breakpoints.down("sm")]: {
+      clipPath: "polygon(0 0, 100% 1%, 100% 100%, 0 99%)",
+    },
   },
   card: {
     minWidth: 275,

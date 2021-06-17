@@ -56,7 +56,7 @@ const ContactSection = () => {
 
   return (
     <Container maxWidth="lg" className={classes.root} id="contact">
-      <Typography variant="h1" color="primary">
+      <Typography variant="h2" color="secondary">
         Contact
       </Typography>
       <Grid
