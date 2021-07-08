@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/core/styles"
 import Project from "../../components/project"
 import projectsArr from "../../services/services.js"
 import { useInView } from "react-intersection-observer"
+import Card from "../../components/card"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -67,12 +68,13 @@ const ProjectsSection = () => {
         <Typography variant="h5" align="center" className={classes.subheading}>
           here's some of my rescent work
         </Typography>
-        <Project source={fleet} project={projectsArr[0]} />
+        <Card />
+        {/* <Project source={fleet} project={projectsArr[0]} />
         <Divider light variant="middle" className={classes.divider} />
         <Project source={sunset} project={projectsArr[1]} />
         <Divider light variant="middle" className={classes.divider} />
         <Project source={lucky} project={projectsArr[2]} />
-        <Divider light variant="middle" className={classes.divider} />
+        <Divider light variant="middle" className={classes.divider} /> */}
       </Container>
     </Fade>
   )
