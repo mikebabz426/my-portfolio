@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { Container, Typography, Divider, Fade } from "@material-ui/core"
+import { Container, Typography, Fade, Box } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
 import Project from "../../components/project"
 import projectsArr from "../../services/services.js"
@@ -24,6 +24,11 @@ const useStyles = makeStyles(theme => ({
   },
   subheading: {
     marginBottom: "3rem",
+  },
+  projects: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
 }))
 
@@ -68,7 +73,12 @@ const ProjectsSection = () => {
         <Typography variant="h5" align="center" className={classes.subheading}>
           here's some of my rescent work
         </Typography>
-        <Card />
+        <Box className={classes.projects}>
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </Box>
         {/* <Project source={fleet} project={projectsArr[0]} />
         <Divider light variant="middle" className={classes.divider} />
         <Project source={sunset} project={projectsArr[1]} />

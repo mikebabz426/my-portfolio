@@ -18,15 +18,14 @@ const Card = () => {
         setHoverClass(hoverClass => (hoverClass === false ? true : false))
       }
     >
-      <h3 className="heading">Heading</h3>
+      <h3 className={cardStyles.heading}>My Fleet Tracker</h3>
       <StaticImage
         className={cardStyles.imageHolder}
-        src="../images/sunset.png"
+        src="../images/volvocard.jpg"
         alt="sunset main page"
         loading="eager"
         placeholder="blurred"
         transformOptions={{
-          // @ts-ignore
           duotone: { opacity: 40, highlight: "#000000", shadow: "#000000" },
         }}
       />
