@@ -4,7 +4,7 @@ import { Button, Link as MuiLink } from "@material-ui/core"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
-const Card = () => {
+const Card = ({ project }) => {
   const [hoverClass, setHoverClass] = useState(false)
 
   const cardHoverStyle = {
@@ -18,28 +18,57 @@ const Card = () => {
         setHoverClass(hoverClass => (hoverClass === false ? true : false))
       }
     >
-      <h3 className={cardStyles.heading}>My Fleet Tracker</h3>
-      <StaticImage
-        className={cardStyles.imageHolder}
-        src="../images/volvocard.jpg"
-        alt="sunset main page"
-        loading="eager"
-        placeholder="blurred"
-        transformOptions={{
-          duotone: { opacity: 40, highlight: "#000000", shadow: "#000000" },
-        }}
-      />
+      {project.name === "Sunset Canines" ? (
+        <StaticImage
+          src="../images/sunsetcard.png"
+          alt="sunset main page"
+          loading="eager"
+          placeholder="blurred"
+          width={300}
+          height={400}
+        />
+      ) : project.name === "My Fleet Tracker" ? (
+        <StaticImage
+          src="../images/volvocard.jpg"
+          alt="sunset main page"
+          loading="eager"
+          placeholder="blurred"
+          width={300}
+          height={400}
+        />
+      ) : (
+        <StaticImage
+          src="../images/luckyCharm.jpg"
+          alt="sunset main page"
+          loading="eager"
+          placeholder="blurred"
+          width={300}
+          height={400}
+        />
+      )}
+
       <div
         className={cardStyles.content}
         style={hoverClass ? cardHoverStyle : null}
       >
+        <h3 className={cardStyles.heading}>{project.name}</h3>
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <MuiLink to="/404" component={Link} style={{ margin: "0 3px" }}>
+          <MuiLink
+            to={project.git}
+            target="_blank"
+            component={Link}
+            style={{ margin: "0 3px" }}
+          >
             <Button size="small" color="secondary" variant="contained">
               Code
             </Button>
           </MuiLink>
-          <MuiLink to="/404" component={Link} style={{ margin: "0 3px" }}>
+          <MuiLink
+            to={project.url}
+            target="_blank"
+            component={Link}
+            style={{ margin: "0 3px" }}
+          >
             <Button size="small" color="secondary" variant="contained">
               Site
             </Button>

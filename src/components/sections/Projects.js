@@ -1,8 +1,8 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
+// import { graphql, useStaticQuery } from "gatsby"
 import { Container, Typography, Fade, Box } from "@material-ui/core"
 import { makeStyles } from "@material-ui/core/styles"
-import Project from "../../components/project"
+// import Project from "../../components/project"
 import projectsArr from "../../services/services.js"
 import { useInView } from "react-intersection-observer"
 import Card from "../../components/card"
@@ -29,39 +29,37 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    flexWrap: "wrap",
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column",
+    },
   },
 }))
 
 const ProjectsSection = () => {
-  const data = useStaticQuery(graphql`
-    {
-      fleet: file(relativePath: { eq: "fleet.jpg" }) {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      sunset: file(relativePath: { eq: "sunset.png" }) {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-      lucky: file(relativePath: { eq: "lucky.png" }) {
-        childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
+  // const data = useStaticQuery(graphql`
+  //   {
+  //     fleet: file(relativePath: { eq: "volvocard.jpg" }) {
+  //       childImageSharp {
+  //         gatsbyImageData(width: 300, placeholder: BLURRED)
+  //       }
+  //     }
+  //     sunset: file(relativePath: { eq: "sunsetcard.png" }) {
+  //       childImageSharp {
+  //         gatsbyImageData(width: 300, placeholder: BLURRED)
+  //       }
+  //     }
+  //     lucky: file(relativePath: { eq: "luckyCharm.png" }) {
+  //       childImageSharp {
+  //         gatsbyImageData(width: 300, placeholder: BLURRED)
+  //       }
+  //     }
+  //   }
+  // `)
   const classes = useStyles()
-  const fleet = data.fleet.childImageSharp.fluid
-  const sunset = data.sunset.childImageSharp.fluid
-  const lucky = data.lucky.childImageSharp.fluid
+  // const fleet = data.fleet.childImageSharp.fluid
+  // const sunset = data.sunset.childImageSharp.fluid
+  // const lucky = data.lucky.childImageSharp.fluid
   const { ref, inView } = useInView()
 
   return (
@@ -74,17 +72,10 @@ const ProjectsSection = () => {
           here's some of my rescent work
         </Typography>
         <Box className={classes.projects}>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          <Card project={projectsArr[0]} />
+          <Card project={projectsArr[1]} />
+          <Card project={projectsArr[2]} />
         </Box>
-        {/* <Project source={fleet} project={projectsArr[0]} />
-        <Divider light variant="middle" className={classes.divider} />
-        <Project source={sunset} project={projectsArr[1]} />
-        <Divider light variant="middle" className={classes.divider} />
-        <Project source={lucky} project={projectsArr[2]} />
-        <Divider light variant="middle" className={classes.divider} /> */}
       </Container>
     </Fade>
   )
