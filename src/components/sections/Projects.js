@@ -37,29 +37,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const ProjectsSection = () => {
-  // const data = useStaticQuery(graphql`
-  //   {
-  //     fleet: file(relativePath: { eq: "volvocard.jpg" }) {
-  //       childImageSharp {
-  //         gatsbyImageData(width: 300, placeholder: BLURRED)
-  //       }
-  //     }
-  //     sunset: file(relativePath: { eq: "sunsetcard.png" }) {
-  //       childImageSharp {
-  //         gatsbyImageData(width: 300, placeholder: BLURRED)
-  //       }
-  //     }
-  //     lucky: file(relativePath: { eq: "luckyCharm.png" }) {
-  //       childImageSharp {
-  //         gatsbyImageData(width: 300, placeholder: BLURRED)
-  //       }
-  //     }
-  //   }
-  // `)
   const classes = useStyles()
-  // const fleet = data.fleet.childImageSharp.fluid
-  // const sunset = data.sunset.childImageSharp.fluid
-  // const lucky = data.lucky.childImageSharp.fluid
   const { ref, inView } = useInView()
 
   return (

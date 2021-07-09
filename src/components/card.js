@@ -73,7 +73,12 @@ const Card = ({ project }) => {
               Site
             </Button>
           </MuiLink>
-          <MuiLink to="/404" component={Link} style={{ margin: "0 3px" }}>
+          <MuiLink
+            to="/projects"
+            component={Link}
+            style={{ margin: "0 3px" }}
+            state={project}
+          >
             <Button size="small" color="secondary" variant="contained">
               ...More
             </Button>
