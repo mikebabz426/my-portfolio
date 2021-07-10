@@ -137,7 +137,7 @@ const IndexPage = () => {
   useEffect(() => setAnimation(true), [])
 
   return (
-    <Layout>
+    <Layout headerInfo>
       <SEO title="Home" />
       <Container className={classes.hero} id="hero">
         <Collapse

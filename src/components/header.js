@@ -16,6 +16,7 @@ import PropTypes from "prop-types"
 import { makeStyles } from "@material-ui/core/styles"
 import MobileLinks from "./mobileLinks"
 import Logo from "../assets/logo.svg"
+import ArrowBackIcon from "@material-ui/icons/ArrowBack"
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -69,7 +70,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-const Header = ({ themeHandler, themeState }) => {
+const Header = ({ themeHandler, themeState, infoDisplay }) => {
   const classes = useStyles()
   const [menu, setMenu] = useState(false)
 
@@ -109,41 +110,57 @@ const Header = ({ themeHandler, themeState }) => {
                   {themeState ? <Brightness2Icon /> : <Brightness5Icon />}
                 </IconButton>
               </Box>
+              {infoDisplay ? (
+                <Box className={classes.links}>
+                  {links.map(link => {
+                    return (
+                      <Typography key={link.name} className={classes.link}>
+                        <MuiLink
+                          style={{
+                            textDecoration: "none",
+                            paddingBottom: ".1rem",
+                          }}
+                          color="inherit"
+                          component={Link}
+                          to={link.to}
+                          activeClassName={classes.linkSelected}
+                        >
+                          {link.name}
+                        </MuiLink>
+                      </Typography>
+                    )
+                  })}
+                </Box>
+              ) : (
+                <Link
+                  to="/#projects"
+                  style={{
+                    textDecoration: `none`,
+                    color: "#fff",
+                  }}
+                >
+                  <IconButton color="inherit" style={{ marginLeft: "3rem" }}>
+                    <ArrowBackIcon />
+                  </IconButton>
+                </Link>
+              )}
 
-              <Box className={classes.links}>
-                {links.map(link => {
-                  return (
-                    <Typography key={link.name} className={classes.link}>
-                      <MuiLink
-                        style={{
-                          textDecoration: "none",
-                          paddingBottom: ".1rem",
-                        }}
-                        color="inherit"
-                        component={Link}
-                        to={link.to}
-                        activeClassName={classes.linkSelected}
-                      >
-                        {link.name}
-                      </MuiLink>
-                    </Typography>
-                  )
-                })}
-              </Box>
-
-              <IconButton
-                className={classes.menu}
-                edge="start"
-                color="inherit"
-                aria-label="menu"
-                onClick={() => setMenu(!menu)}
-              >
-                <MenuIcon />
-              </IconButton>
+              {infoDisplay ? (
+                <IconButton
+                  className={classes.menu}
+                  edge="start"
+                  color="inherit"
+                  aria-label="menu"
+                  onClick={() => setMenu(!menu)}
+                >
+                  <MenuIcon />
+                </IconButton>
+              ) : null}
             </Box>
           </Container>
         </Toolbar>
       </AppBar>
+
       {menu ? (
         <MobileLinks
           menu={menu}

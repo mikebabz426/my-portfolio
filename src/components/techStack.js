@@ -8,16 +8,18 @@ const useStyles = makeStyles(theme => ({
     marginTop: "1rem",
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
     justifyContent: "center",
+    [theme.breakpoints.down("sm")]: {
+      alignItems: "center",
+    },
   },
   listsContainer: {
     display: "flex",
     flexDirection: "row",
-    margin: "1rem",
+    margin: "1rem 0 1rem 0",
   },
   list: {
-    margin: "0 1rem",
+    margin: "0 1rem 0 0",
   },
   subhead: {
     margin: ".75rem 0",
@@ -47,7 +49,7 @@ const TechStack = ({ project }) => {
           ))}
         </Box>
         {back.length !== 0 ? (
-          <Box className={classes.list}>
+          <Box className={classes.list} style={{ marginLeft: "1rem" }}>
             <Typography
               align="left"
               className={classes.subhead}

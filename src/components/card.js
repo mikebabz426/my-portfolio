@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import * as cardStyles from "./card.module.css"
-import { Button, Link as MuiLink } from "@material-ui/core"
+import { Button, Link as MuiLink, Card as CardCover } from "@material-ui/core"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
@@ -12,16 +12,21 @@ const Card = ({ project }) => {
   }
 
   return (
-    <div
+    <CardCover
+      raised
+      // role="region"
       className={cardStyles.card}
       onClick={() =>
         setHoverClass(hoverClass => (hoverClass === false ? true : false))
       }
+      // onKeyDown={() =>
+      //   setHoverClass(hoverClass => (hoverClass === false ? true : false))
+      // }
     >
       {project.name === "Sunset Canines" ? (
         <StaticImage
-          src="../images/sunsetcard.png"
-          alt="sunset main page"
+          src="../images/sunsetcard2.png"
+          alt="Sunset Canines Logo"
           loading="eager"
           placeholder="blurred"
           width={300}
@@ -30,7 +35,7 @@ const Card = ({ project }) => {
       ) : project.name === "My Fleet Tracker" ? (
         <StaticImage
           src="../images/volvocard.jpg"
-          alt="sunset main page"
+          alt="picture of OTR truck"
           loading="eager"
           placeholder="blurred"
           width={300}
@@ -39,7 +44,7 @@ const Card = ({ project }) => {
       ) : (
         <StaticImage
           src="../images/luckyCharm.jpg"
-          alt="sunset main page"
+          alt="Lucky Charm Logo"
           loading="eager"
           placeholder="blurred"
           width={300}
@@ -85,7 +90,7 @@ const Card = ({ project }) => {
           </MuiLink>
         </div>
       </div>
-    </div>
+    </CardCover>
   )
 }
 

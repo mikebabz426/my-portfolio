@@ -6,12 +6,16 @@ import Header from "./header"
 import "fontsource-roboto"
 import { ThemeContext } from "./../ThemeContext"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, headerInfo }) => {
   const [theme, setTheme] = useContext(ThemeContext)
 
   return (
     <CssBaseline>
-      <Header themeHandler={() => setTheme(!theme)} themeState={theme} />
+      <Header
+        themeHandler={() => setTheme(!theme)}
+        themeState={theme}
+        infoDisplay={headerInfo}
+      />
       {children}
     </CssBaseline>
   )
